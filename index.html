@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Dorian Wilczyński profil autora fantasy">
+    <meta name="keywords" content="fantasyka, Dorian Wilczyński, książki, audiobook, fantasy, gamebook">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dorian Wilczyński - autor</title>
+    <link rel="stylesheet" href="./styles/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Baskervville&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header onscroll="bT()">
+         <nav id="navbar">
+            <p class="navItem" id="authorName"><a href=#showcase>DORIAN WILCZYŃSKI</a></p>
+            <a href="#showcase" class="navItem"><p>START</p></a>
+            <a href="#news" class="navItem"><p>NOWOŚCI</p></a>
+            <a href="#books" class="navItem" onclick="displayBook(0)"><p>TWÓRCZOŚĆ</p></a>
+            <a href="#contact" class="navItem"><p>KONTAKT</p></a>
+            <img src="./images/menuicon.png" id="hamburgerMenu" onclick="expandMenu()" alt="menu">      
+        </nav>
+        <div id="mobile">
+            <a href="#showcase" class="navItemMobile" onclick="expandMenu()"><p>START</p></a>
+            <a href="#news" class="navItemMobile" onclick="expandMenu()"><p>NOWOŚCI</p></a>
+            <a href="#books" class="navItemMobile" onclick="displayBook(0), expandMenu()"><p>TWÓRCZOŚĆ</p></a>
+            <a href="#contact" class="navItemMobile" onclick="expandMenu()"><p>KONTAKT</p></a>
+        </div>
+    </header>
+    <main>
+        <section class="showcase" id="showcase">
+            <div class="slide" id="audiobook">
+                <h1>Dorian Wilczyński</h1>
+                <h3>- Pisarstwo jest alchemią słów -</h3>
+                <a class="topButton" href=#books onclick="displayBook(4)" onmouseover="stopSlideshow()" onmouseout="startSlideshow()">
+                Audiobook</a>
+            </div>
+            <div class="slide" id="textbook">
+                <h1>Dorian Wilczyński</h1>
+                <h3>- Pisarstwo jest alchemią słów -</h3>
+                <a class="topButton" href=#books onclick="displayBook(3)" onmouseover="stopSlideshow()" onmouseout="startSlideshow()">
+                Książka</a>
+            </div>
+            <div class="slide" id="gamebook">
+                <h1>Dorian Wilczyński</h1>
+                <h3> - Pisarstwo jest alchemią słów - </h3>
+                <a class="topButton" href=# onmouseover="stopSlideshow()" onmouseout="startSlideshow()">
+                Gra - w przygotowaniu</a>
+            </div>
+            <div class="slide" id="stories">
+                <h1>Dorian Wilczyński</h1>
+                <h3>- Pisarstwo jest alchemią słów -</h3>
+                <a class="topButton" href=#books onclick="displayBook(0)" onmouseover="stopSlideshow()" onmouseout="startSlideshow()"><p>Opowiadania</p></a>
+            </div>
+            <div id="buttonHolder">
+                <a class="buttons" id="firstButton" onclick="setSlide(1)"></a>
+                <a class="buttons" id="secondButton" onclick="setSlide(2)"></a>
+                <a class="buttons" id="thirdButton" onclick="setSlide(3)"></a>
+                <a class="buttons" id="fourthButton" onclick="setSlide(4)"></a>
+            </div>
+        </section>
+            <a class="prev" onclick="prevSlide()">&#10094;</a>
+            <a class="next" onclick="nextSlide()">&#10095;</a>      
+        <section class="news" id="news">
+            <h1>Nowości</h1>
+            <article class="newsbox">
+                <h2 class="newsHeader">Audiobook pierworodny</h2>
+                <p class ="publishDate">Data opublikowania: 14.01.2020</p>
+                <p class ="newsText">
+                    Z dniem dzisiejszym zakończyłem pracę nad pierwszym projektem związanym z planowanym słuchowiskiem opowiadań. „Książęca Litość” jest nareszcie gotowa w formie audio. Istotne dla mojej dalszej pracy jest dowiedzenie się, czy taka forma Wam Czytelnikom odpowiada – zachęcam do komentowania na <a href="https://www.youtube.com/channel/UC7UfmB6DnHC1wXux5qEmx6w" target="_blank">YouTube</a> albo przekazania mi swojej opinii za pośrednictwem formularza kontaktowego. W planach mam również stworzenie gamebooka i mam nadzieję, że znajdę chwilę czasu aby przy filiżance mocnej kawy nad tym popracować.</p>
+            </article>
+            <article class = "newsbox">
+                <h2 class="newsHeader">Tercet opowiadań</h2>  
+                <p class ="publishDate">Data opublikowania: 14.01.2020</p>              
+                <p class ="newsText">Na stronę zawitały trzy opowiadania: „Cień Shalmary”, „Legenda Tirinalsi” i „Książęca Litość”. Są one w pełni darmowe, każde z nich można swobodnie ściągać i udostępniać. Znajdziecie je w dziale <a href="#books">Twórczość</a>. Każde z nich opowiada oddzielną historię, umiejscowioną w innym zakątku świata Cedrus. Wszelkie uwagi i komentarze są zawsze mile widziane – zachęcam do korzystania z formularza kontaktowego, który znajduje się na samym dole strony.</p>
+            </article>
+            <article class = "newsbox">
+                <h2 class="newsHeader">Ruszyła strona!</h2>
+                <p class ="publishDate">Data opublikowania: 14.01.2020</p>
+                <p class ="newsText">Dzięki zaangażowaniu i ciężkiej pracy życzliwego web developera możemy dziś oddać do użytku pierwszą wersję mojej strony - portfolio. Mam nadzieję, że z czasem będzie ona rosła i zapełniała się treścią. Mówi się, że dla pisarza najtrudniejsza jest właśnie pierwsza strona, więc skoro mamy już ją za sobą, to czas na prawdziwy teatr liter.</p>
+            </article>
+        </section>
+        <div class="parallax">
+        </div>
+        <section class="news" id="books">
+            <h1>Twórczość</h1>
+            <article id="twoColumn">
+                <div id="booklist">
+                    <div onclick="displayBook(0)"><p>Książęca Litość</p></div>
+                    <div onclick="displayBook(1)"><p>Cień Shalmary</p></div>
+                    <div onclick="displayBook(2)"><p>Legenda Tirinalsi</p></div>
+                    <div onclick="displayBook(3)"><p>Cena Wolności</p></div>
+                    <div onclick="displayBook(4)"><p>Audiobook - Książęca Litość</p></div>
+                </div>
+                <div class="bookcaseBody" id="storyOne">
+                    <h3>Książęca Litość</h3>
+                    <div class="bookDescription">
+                        <img src="./images/foggycastle2.jpg" alt="a castle in fog">
+                        <p>Królestwo Lantrewii od zawsze słynęło z celebracji głębokiej czerwieni. Niewiasty obdarzone płomiennymi włosami wynoszono na piedestały, a karmazynowe końskie grzywy stały się z czasem symbolem korony. <br><br>W roku 1355 Nowej Ery nawet złociste, jesienne listowie przybrało barwę czerwieni - zrosiła je krew. Zbuntowani chłopi, prowadzeni przez miejscowego kowala, zwanego „Młotnikiem”, dokonali już wielu rozbojów wzdłuż Spiżowego Traktu i ciągle rośli na siłę. W końcu jednak rewolta przyciągnęła uwagę samego możnowładcy tych ziem - Donovana de’Laenard. Książeca cierpliwość miała wkrótce się skończyć...</p>
+                    </div>
+                    <a href="./files/Książęca-Litość.pdf" class="download" download>Pobierz za darmo</a>
+                </div>
+                    <div class="bookcaseBody" id="storyTwo">
+                        <h3>Cień Shalmary</h3>
+                        <div class="bookDescription">
+                            <img src="./images/darkknight2.jpg" alt="a dark knight">
+                            <p>Od trzech lat trwa wojna Dursko-Mardawska. Niedawna stagnacja została ostatecznie przełamana i armie ponownie stanęły naprzeciw siebie, tym razem pod owianą złą sławą górą, Shalmarą. Ostatecznie to Mardawczycy przeważyli, ponosząc jednak ciężkie straty.<br><br>Po zwycięskiej bitwie ranny sir Lathaniel von Ednar wyrusza w podróż powrotną na ziemie swego rodu. Obrazy krwawych starć i echo szczęku stali wciąż nie pozwalają mu o sobie zapomnieć i powracają we wspomnieniach. Zostawiwszy za sobą pasmo Arm postanawia nieco odpocząć w pobliskiej wiosce, lecz czy uda mu sie opuścić cień Shalmary?</p>
+                     </div>
+                    <a href="./files/Cien_Shalmary.pdf" class="download" download>Pobierz za darmo</a>
+                </div>
+                <div class="bookcaseBody" id="storyThree">
+                    <h3>Legenda Tirinalsi</h3>
+                    <div class="bookDescription">
+                        <img src="./images/cover.jpg" alt="inside a palace coutryard gallery">
+                        <p>Do drzwi pewnego domostwa, zbudowanego na uboczu miejskiego skweru, zapukała nie mająca litości śmierć. Wydała ona odroczony w czasie wyrok na szarą elfkę, Ivvę. Przez lata jej mąż, Evan, zmagał się z dręczącymi go koszmarami, będącymi pokłosiem nieuleczalnej choroby jego żony. <br><br>Stan Ivvy powoli, lecz nieuchronnie, ulegał pogorszeniu wraz z mijającymi miesiącami. W końcu czarę goryczy przelały złowróżbne rokowania zajmującego się nią medyka. Wtedy Evan podjął decyzję. Postanowił opowiedzieć jej tajemniczą legendę, będącą preludium do największej i najniebezpieczniejszej wyprawy ich życia. Być może również ich ostatniej… 
+                        </p>
+                    </div>
+                    <a href="./files/Legenda_Tirinalsi.pdf" class="download" download>Pobierz za darmo</a>
+                </div>
+                <div class="bookcaseBody" id="bookOne">
+                    <h3>Cena Wolności</h3>
+                    <div class="bookDescription">
+                        <img src="./images/monastery1.jpg" alt="a dark monastery">
+                        <p>Podziemne miasto Hirde’dun stoi na tolerancji – również tolerancji wobec zła, równości – ale tylko wewnątrzklasowej i wolności – ale tylko dla obywateli. Zło zakute w kajdany cywilizacji jest wygodne zwłaszcza, gdy oferuje władzę i luksusy. Hegemonię posiada arystokracja, wspólnie władająca jako Rada. Uciemiężeni niewolnicy zapewniają siłę roboczą do najgorszych i najcięższych prac. Ich życia mijają wedle planu ich panów, pod groźbą „gościny” w Kazamatach Katorżnictwa. <br><br> Bractwo Handlowe rządzi rynkiem niewolników, a kluczem ich sukcesu jest rzetelność, profesjonalizm i poufność. Ci, którzy walczą z potęgą Hirde’dun wydają sie być skazani na porażkę, lecz mimo to w mrokach miasta skryła się organizacja ratująca pojedyncze dusze od jarzma.</p>
+                    </div>
+                    <a href="#books" class="download">Książka obecnie niedostępna</a>
+                </div>    
+                <div class="bookcaseBody" id="audio">
+                    <h3>Audiobook</h3>
+                    <div class="framebox">
+                        <iframe src="https://www.youtube.com/embed/9E2VRryp76w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>  
+        </section>
+        <section id="contact">
+            <div id="contactBox">
+                <h2>Formularz kontaktowy</h2>
+                <p>Jeśli chcesz się ze mną skontaktować, skorzystaj z poniższego formularza:</p>
+                <form action="mail.php" method="POST">
+                    <div class="name">
+                        <label for="name">Imię i nazwisko</label>
+                        <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required pattern="\p{L}+\s\p{L}+">
+                    </div>
+                    <div class="mail">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="Twój adres email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                    </div>
+                    <div class="rest">
+                        <label for="emailText" id="textLabel">Twoja wiadomość</label>
+                        <textarea id="emailText" name="emailText" placeholder="Wpisz swoją wiadomość" required></textarea>
+                    </div>
+                    <div class="sendButton">
+                        <input type="submit" value="Wyślij">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footerStrip">
+            <div class="linkbox">
+                <a href=#showcase>Start</a>
+                <a href="#news">Nowości</a>
+                <a href="#books">Twórczość</a>
+                <a href="#contact">Kontakt</a>
+                <a href="https://www.youtube.com/channel/UC7UfmB6DnHC1wXux5qEmx6w" target="_blank"><img class="socialMedia" src="./images/yticonwhite.png" alt="Youtube icon"></a>
+                <a href="javascript:void(0)"><img class="socialMedia" src="./images/fbicon.png" alt="Facebook icon"></a>
+            </div>
+        </div>
+        <div class="footerStrip">
+            <p class="copyright">Copyright &copy; 2020 DorianWilczynski.pl | All rights reserved | Projekt i wykonanie: Kuba Jot</p>
+        </div>
+    </footer>
+    <script src="script/dorianScript.js"></script> 
+</body>
+</html>
