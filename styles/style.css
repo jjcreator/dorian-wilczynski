@@ -178,11 +178,10 @@ body {
 
 .topButton:hover {
     -webkit-transition: ease 0.2s;
-    background: url(/images/paper.jpg);
-    background-size: cover;
-    border: 1vh inset rgb(61, 45, 30);
-    transition: border 1s ease;
-    text-decoration: underline;
+    transition: ease 0.5s;
+    border: 4px gray inset;
+    background-color: rgba(54, 64, 65, 0.95);
+    border-radius: 2em;
 }
 
 .topButton {
@@ -195,17 +194,17 @@ body {
     max-width: -moz-fit-content;
     max-width: 30%;
     max-width: fit-content;
-    background: url(/images/paper.jpg);
-    background-size: cover;
+    background-color: rgba(54, 64, 65, 0.6);
     display: block;
-    border: 1vh outset rgb(66, 52, 39);
+    border: 4px gray outset;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: lighter;
     font-family: 'Oswald', sans-serif;
     align-self: center;
-    color: black;
-    transition: border 1s ease;
+    transition: ease 0.5s;
+    border-radius: 2em;
+    color: white;
 }
 
 #audiobook {
@@ -526,7 +525,7 @@ body {
 
 #contact {
     width: 100%;
-    height: 90vh;
+    height: 85vh;
     margin: 0 auto;
     background-image: url(../images/whitepapers.jpg);
     background-position: center;
@@ -534,7 +533,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 12vh;
-    border: 1px
 }
 
 #contactBox {
@@ -586,9 +584,8 @@ body {
 }
 
 .name, .mail {
-    -ms-flex-preferred-size: 40%;
-        flex-basis: 45%;
-    max-width: 45%;
+    -ms-flex-preferred-size: 47%;
+        flex-basis: 47%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -596,12 +593,12 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: 0.1vh;
 }
 
 .name input, .mail input {
-    font-family: inherit;
+    font-family: Georgia, 'Times New Roman', Times, serif, serif;
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
+    padding: 0.2em 0;  
 }
 
 .rest {
@@ -614,14 +611,13 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-top: 2vh;
+    margin-top: 0.8em;
 }
 
 .rest textarea {
+    font-family: Georgia, 'Times New Roman', Times, serif, serif;
     resize: none;
-    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
-    font-family: inherit;
-    height: 15vh;
+    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin)
 }
 
 .name label, .mail label, .rest label {
@@ -640,7 +636,8 @@ body {
     height: 100%;
     color: white;
     background-color: #363636;
-    font-size: calc(5px + 0.4vw + 0.4vh + .2vmin);
+    font-family: Georgia, 'Times New Roman', Times, serif, serif;
+    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
     float: right;
     padding: 0.05vh;
 }
@@ -651,7 +648,7 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 1.5vh 0 1vw 0;
+    padding: 1.5em 0 1em 0;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -755,8 +752,6 @@ footer img:hover {
     #contactBox form {
         width: 85%;
     }
-
-
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -769,6 +764,7 @@ footer img:hover {
 
     #hamburgerMenu {
         display: block;
+
     }
 
     .navItem {
