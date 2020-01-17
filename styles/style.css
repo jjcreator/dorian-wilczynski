@@ -189,7 +189,7 @@ body {
     text-align: center;
     margin: 30vh auto 0 auto;
     padding: calc(5px + 0.3vw + 0.3vh + .5vmin);
-    min-width: 15%;
+    min-width: 13%;
     max-width: -webkit-fit-content;
     max-width: -moz-fit-content;
     max-width: 30%;
