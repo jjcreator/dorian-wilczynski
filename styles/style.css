@@ -178,10 +178,11 @@ body {
 
 .topButton:hover {
     -webkit-transition: ease 0.2s;
-    background: url(/images/paper.jpg);
-    background-size: cover;
-    border: 1vh inset #2a3233da;
-    transition: 3s ease;
+    background: none;
+    background-color: black;
+    color: white;
+    transition: 0.5s ease;
+    border: 0.5vh inset #364041da;
 }
 
 .topButton {
@@ -197,14 +198,14 @@ body {
     background: url(/images/paper.jpg);
     background-size: cover;
     display: block;
-    border: 1vh outset #364041da;
+    border: 0.5vh outset #364041da;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: lighter;
     font-family: 'Oswald', sans-serif;
     align-self: center;
     color: black;
-    transition: border 3s ease;
+    transition: 0.5s ease;
 }
 
 #audiobook {
