@@ -124,7 +124,7 @@ body {
 
 /*----------- Main page -----------*/
 
-.showcase {
+#showcase {
     background-color: rgba(0, 0, 0, 0.75);
     padding: 0;
     margin: 0em 0 4em 0;
@@ -159,7 +159,7 @@ body {
     display: none;
     width: 100%;
     align-items: center;
-}
+    }
 
 .slide h1 {
     font-size: calc(10px + 1.5vw + 1.5vh + .5vmin);
@@ -168,12 +168,14 @@ body {
     letter-spacing: 0.09em;
     font-family: 'Oswald', sans-serif;
     text-shadow: 1px 1px black;
+    
 }
 
 .slide h3 {
     text-align: center;
     text-shadow: 1px 1px black;
     font-size: calc(10px + 0.25vw + 0.25vh + .2vmin);
+    
 }
 
 .topButton:hover {
@@ -249,6 +251,7 @@ body {
             user-select: none;
     -webkit-transition: 0.4s ease;
     transition: 0.4s ease;
+    z-index: 100;
 }
 
 .next {
@@ -268,6 +271,7 @@ body {
     position: absolute;
     bottom: 2vh;
     margin: 0 auto;
+    z-index: 100;
 }
 
 .buttons {
@@ -281,6 +285,7 @@ body {
     border-radius: 50%;
     -webkit-box-shadow: 0.5px 0.5px rgba(255, 255, 255, 0.73);
         box-shadow: 0.5px 0.5px rgba(255, 255, 255, 0.73);
+        z-index: 100;
 }
 
 #firstButton {
