@@ -106,8 +106,7 @@ const displayPage = (pageNumber) => {
         leftArrow.style.opacity = "0.2";
         leftArrow.style.cursor = "default";
     }
-//    console.log(pagesArray[pagesArray.length -1].id.match(/[0-9]+/g))
-    if (pageNumber === parseInt(pagesArray[pagesArray.length -1].id.match(/[0-9]+/g))) {
+    if (pageNumber === pagesArray.length) {
         rightArrow.style.opacity = "0.2";
         rightArrow.style.cursor = "default";
     }
@@ -116,13 +115,19 @@ const displayPage = (pageNumber) => {
 displayPage(1);
 
 rightArrow.addEventListener("click", ()=> {
-    pageCounter++;
-    displayPage(pageCounter);
+    if (pageCounter != pagesCollection.length) {
+        pageCounter++;
+        displayPage(pageCounter);
+    }
+    
 
 });
 leftArrow.addEventListener("click", ()=> {
-    pageCounter--;
-    displayPage(pageCounter)
+    if (pageCounter - 1 != 0) {
+        pageCounter--;
+        displayPage(pageCounter)
+    }
+    
 })
 
 // On scroll effects //
