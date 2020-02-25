@@ -2,6 +2,12 @@ let slidePosition = 0;
 let slideArray = ["stories", "audiobook","gamebook", "textbook"];
 let buttonsArray = ["firstButton", "secondButton", "thirdButton", "fourthButton"];
 let bookArray = ["storyOne", "storyTwo", "storyThree", "bookOne", "audio"];
+let newsCollection = document.getElementsByClassName("newsbox");
+let pagesCollection = document.getElementsByClassName("page");
+let currentPage;
+let pageCounter = 1;
+let rightArrow = document.getElementById("right-arrow");
+let leftArrow = document.getElementById("left-arrow");
 
 // Appear effect for displaying slides / books
 
@@ -58,6 +64,66 @@ const setSlide = x => {
     slidePosition = x - 1;
     displaySlide();
 }
+
+// News archive
+
+const archiveNews = () => {
+    newsArray = Array.from(newsCollection);
+    console.log(newsArray);
+    let news = document.getElementById("news");
+    let n = 1;
+    while (newsArray.length > 0) {
+        if (document.getElementById("page" + n)) {
+            currentPage = document.getElementById("page" + n);
+        }
+        else {
+            currentPage = document.createElement("div");
+            currentPage.classList.add("page");
+            currentPage.id = "page" + n;
+        }
+        news.appendChild(currentPage);
+        for (let i=0; i<3; i++) {
+            if (newsArray.length > 0) {
+                currentPage.append(newsArray[0]);
+               newsArray.shift();
+                }
+            }
+        n++;
+    }
+}
+
+archiveNews();
+const displayPage = (pageNumber) => {
+    rightArrow.style.opacity = "1";
+    leftArrow.style.opacity = "1";
+    pagesArray = Array.from(pagesCollection);
+    pagesArray.forEach(page => {
+        page.style.display = "none";
+    });
+    pagesArray[pageNumber - 1].style.display = "block";
+    document.getElementById("page-number").textContent = "STRONA " + pageNumber;
+    if (pageNumber === 1) {
+        leftArrow.style.opacity = "0.2";
+        leftArrow.style.cursor = "default";
+    }
+//    console.log(pagesArray[pagesArray.length -1].id.match(/[0-9]+/g))
+    if (pageNumber === parseInt(pagesArray[pagesArray.length -1].id.match(/[0-9]+/g))) {
+        rightArrow.style.opacity = "0.2";
+        rightArrow.style.cursor = "default";
+    }
+}
+
+displayPage(1);
+
+rightArrow.addEventListener("click", ()=> {
+    pageCounter++;
+    displayPage(pageCounter);
+
+});
+leftArrow.addEventListener("click", ()=> {
+    pageCounter--;
+    displayPage(pageCounter)
+})
 
 // On scroll effects //
 const bT = () => {
