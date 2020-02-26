@@ -168,22 +168,26 @@ body {
     letter-spacing: 0.09em;
     font-family: 'Oswald', sans-serif;
     text-shadow: 1px 1px black;
+    z-index: 3;
+    
     
 }
 
 .slide h3 {
     text-align: center;
     text-shadow: 1px 1px black;
-    font-size: calc(10px + 0.25vw + 0.25vh + .2vmin);
-    
+    font-size: calc(13px + 0.25vw + 0.25vh + .2vmin);
+    z-index: 3;
+    padding: 20px;
+
 }
 
 .topButton:hover {
     -webkit-transition: ease 0.2s;
     transition: ease 0.5s;
-    border: 4px gray inset;
-    background-color: rgba(54, 64, 65, 0.95);
-    border-radius: 2em;
+    background-color: rgba(54, 64, 65, 1);
+    text-shadow: 3px 3px 10px black;
+
 }
 
 .topButton {
@@ -196,9 +200,9 @@ body {
     max-width: -moz-fit-content;
     max-width: 30%;
     max-width: fit-content;
-    background-color: rgba(54, 64, 65, 0.6);
+    background-color: rgba(54, 64, 65, 0.7);
     display: block;
-    border: 4px gray outset;
+    border: 2px white solid;;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: lighter;
@@ -207,6 +211,8 @@ body {
     transition: ease 0.5s;
     border-radius: 2em;
     color: white;
+    text-shadow: 1px 1px 10px black;
+    z-index: 3;
 }
 
 #audiobook {
@@ -271,7 +277,7 @@ body {
     position: absolute;
     bottom: 2vh;
     margin: 0 auto;
-    z-index: 100;
+    z-index: 19;
 }
 
 .buttons {
@@ -285,7 +291,7 @@ body {
     border-radius: 50%;
     -webkit-box-shadow: 0.5px 0.5px rgba(255, 255, 255, 0.73);
         box-shadow: 0.5px 0.5px rgba(255, 255, 255, 0.73);
-        z-index: 100;
+        z-index: 19;
 }
 
 #firstButton {
@@ -357,7 +363,7 @@ body {
     align-items: center;
     width: 10%;
     margin: 0 1em 0 auto;
-    padding: 0.8em;
+    padding: 0.5em;
     background: linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%);
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
     line-height: 1.6em;
@@ -378,12 +384,8 @@ body {
 }
 
 .arrow {
-    width: 2vw;
+    min-width: 33%;
     cursor: pointer;
-}
-
-#left-arrow {
-    margin-right: 1em;
 }
 
 .parallax {
@@ -487,7 +489,7 @@ body {
     display: flex;
 }
 
-#bookOne, #storyTwo, #storyThree, #audio {
+#bookOne, #storyTwo, #storyThree, #audio1, #audio2{
     display: none;
 }
 
@@ -820,6 +822,7 @@ footer img:hover {
     }
     .news {
         width: 95%;
+        min-height: 90vh;
      }
 
     .bookDescription p {

@@ -1,9 +1,10 @@
 let slidePosition = 0;
 let slideArray = ["stories", "audiobook","gamebook", "textbook"];
 let buttonsArray = ["firstButton", "secondButton", "thirdButton", "fourthButton"];
-let bookArray = ["storyOne", "storyTwo", "storyThree", "bookOne", "audio"];
+let bookArray = ["storyOne", "storyTwo", "storyThree", "bookOne", "audio1", "audio2"];
 let newsCollection = document.getElementsByClassName("newsbox");
 let pagesCollection = document.getElementsByClassName("page");
+let pagesArray;
 let currentPage;
 let pageCounter = 1;
 let rightArrow = document.getElementById("right-arrow");
@@ -69,7 +70,6 @@ const setSlide = x => {
 
 const archiveNews = () => {
     newsArray = Array.from(newsCollection);
-    console.log(newsArray);
     let news = document.getElementById("news");
     let n = 1;
     while (newsArray.length > 0) {
@@ -93,15 +93,18 @@ const archiveNews = () => {
 }
 
 archiveNews();
+
 const displayPage = (pageNumber) => {
     rightArrow.style.opacity = "1";
     leftArrow.style.opacity = "1";
+    rightArrow.style.cursor = "pointer";
+    leftArrow.style.cursor = "pointer";
     pagesArray = Array.from(pagesCollection);
     pagesArray.forEach(page => {
         page.style.display = "none";
     });
     pagesArray[pageNumber - 1].style.display = "block";
-    document.getElementById("page-number").textContent = "STRONA " + pageNumber;
+    document.getElementById("page-number").textContent = "STRONA " + pageNumber + "/" + pagesArray.length;
     if (pageNumber === 1) {
         leftArrow.style.opacity = "0.2";
         leftArrow.style.cursor = "default";

@@ -29,28 +29,29 @@
         </div>
     </header>
     <main>
+        <div id="dark-overlay">
         <section id="showcase">
             <div class="slide" id="audiobook">
                 <h1>Dorian Wilczyński</h1>
-                <h3>- Pisarstwo jest alchemią słów -</h3>
+                <h3>Pisarstwo jest alchemią słów</h3>
                 <a class="topButton" href=#books onclick="displayBook(4)" onmouseover="stopSlideshow()" onmouseout="startSlideshow()">
                 Audiobook</a>
             </div>
             <div class="slide" id="textbook">
                 <h1>Dorian Wilczyński</h1>
-                <h3>- Pisarstwo jest alchemią słów -</h3>
+                <h3>Pisarstwo jest alchemią słów</h3>
                 <a class="topButton" href=#books onclick="displayBook(3)" onmouseover="stopSlideshow()" onmouseout="startSlideshow()">
                 Książka</a>
             </div>
             <div class="slide" id="gamebook">
                 <h1>Dorian Wilczyński</h1>
-                <h3> - Pisarstwo jest alchemią słów - </h3>
+                <h3>Pisarstwo jest alchemią słów</h3>
                 <a class="topButton" href=# onmouseover="stopSlideshow()" onmouseout="startSlideshow()">
                 Gra - w przygotowaniu</a>
             </div>
             <div class="slide" id="stories">
                 <h1>Dorian Wilczyński</h1>
-                <h3>- Pisarstwo jest alchemią słów -</h3>
+                <h3>Pisarstwo jest alchemią słów</h3>
                 <a class="topButton" href=#books onclick="displayBook(0)" onmouseover="stopSlideshow()" onmouseout="startSlideshow()"><p>Opowiadania</p></a>
             </div>
             <div id="buttonHolder">
@@ -60,15 +61,16 @@
                 <a class="buttons" id="fourthButton" onclick="setSlide(4)"></a>
             </div>
         </section>
+    </div>
             <a class="prev" onclick="prevSlide()">&#10094;</a>
             <a class="next" onclick="nextSlide()">&#10095;</a>      
         <section class="news" id="news">
             <h1>Nowości</h1>
-            <article class="newsbox">
+            <article class="newsbox">       
                 <h2 class="newsHeader">Kolejne słuchowisko</h2>
                 <p class ="publishDate">Data opublikowania: 25.02.2020</p>
                 <p class ="newsText">
-                    Idąc za ciosem ukończyłem pracę nad kolejnym audiobookiem, tak aby „Książęca Litość” nie pozostawała osamotniona. Tym razem na warsztat poszedł ciepło przyjęty przez czytelników „Cień Shalmary”. Mam nadzieję, że słuchowisko pobudzi Waszą wyobraźnię oraz pozwoli na wytchnienie, na przykład w długiej trasie. Zachęcam do podzielenie się opinią w <a href="https://www.youtube.com/watch?v=XqYuUres06I">komentarzach</a>, gdyż to z pewnością motywuje do dalszej pracy. Audiobook jest także dostepny w dziale <a href="#books">Twórczość</a>.</p>
+                    Idąc za ciosem ukończyłem pracę nad kolejnym audiobookiem, tak aby „Książęca Litość” nie pozostawała osamotniona. Tym razem na warsztat poszedł ciepło przyjęty przez czytelników „Cień Shalmary”. Mam nadzieję, że słuchowisko pobudzi Waszą wyobraźnię oraz pozwoli na wytchnienie, na przykład w długiej trasie. Zachęcam do podzielenia się opinią w <a href="https://www.youtube.com/watch?v=XqYuUres06I">komentarzach</a>, gdyż to z pewnością motywuje do dalszej pracy. Audiobook jest także dostepny w dziale <a href="#books">Twórczość</a>.</p>
             </article>
             <article class="newsbox">
                 <h2 class="newsHeader">Audiobook pierworodny</h2>
@@ -85,14 +87,16 @@
                 <h2 class="newsHeader">Ruszyła strona!</h2>
                 <p class ="publishDate">Data opublikowania: 14.01.2020</p>
                 <p class ="newsText">Dzięki zaangażowaniu i ciężkiej pracy życzliwego web developera możemy dziś oddać do użytku pierwszą wersję mojej strony - portfolio. Mam nadzieję, że z czasem będzie ona rosła i zapełniała się treścią. Mówi się, że dla pisarza najtrudniejsza jest właśnie pierwsza strona, więc skoro mamy już ją za sobą, to czas na prawdziwy teatr liter.</p>
-            </article> 
+            </article>
+             
         </section>      
         <div class="news">
             <div id="news-button">
                 <p id="page-number">STRONA 1</p>
                 <div class="arrows">
-                    <img id="left-arrow" class="arrow" src="/images/aiga_left_arrow_bg.svg" alt="left arrow">
-                    <img id="right-arrow" class="arrow" src="/images/aiga_right_arrow_bg.svg" alt="right arrow">
+                    <a href="#news" class="arrow"><img id="left-arrow" class="arrow" src="/images/aiga_left_arrow_bg.svg" alt="left arrow"></a>
+                    <a href="#news" class="arrow"><img id="right-arrow" class="arrow" src="/images/aiga_right_arrow_bg.svg" alt="right arrow"></a>
+                    
                 </div>
             </div>
         </div>
@@ -107,6 +111,7 @@
                     <div onclick="displayBook(2)"><p>Legenda Tirinalsi</p></div>
                     <div onclick="displayBook(3)"><p>Cena Wolności</p></div>
                     <div onclick="displayBook(4)"><p>Audiobook - Książęca Litość</p></div>
+                    <div onclick="displayBook(5)"><p>Audiobook - Cień Shalmary</p></div>
                 </div>
                 <div class="bookcaseBody" id="storyOne">
                     <h3>Książęca Litość</h3>
@@ -141,13 +146,19 @@
                     </div>
                     <a href="#books" class="download">Książka obecnie niedostępna</a>
                 </div>    
-                <div class="bookcaseBody" id="audio">
+                <div class="bookcaseBody" id="audio1">
                     <h3>Audiobook</h3>
                     <div class="framebox">
                         <iframe src="https://www.youtube.com/embed/9E2VRryp76w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-            </article>  
+                <div class="bookcaseBody" id="audio2">
+                    <h3>Audiobook</h3>
+                    <div class="framebox">
+                        <iframe src="https://www.youtube.com/embed/XqYuUres06I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
         </section>
         <section id="contact">
             <div id="contactBox">
