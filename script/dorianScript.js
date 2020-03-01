@@ -134,7 +134,7 @@ leftArrow.addEventListener("click", ()=> {
 })
 
 // On scroll effects //
-const bT = () => {
+const navbarControl = () => {
     let currentScrollPos = window.pageYOffset;
     if(0 < currentScrollPos) {
     document.getElementById("navbar").style.backgroundColor = "rgb(121, 108, 108)";
@@ -180,4 +180,4 @@ const expandMenu = () => {
 }
 
 startSlideshow();
-window.onscroll = bT;
+window.onscroll = navbarControl;

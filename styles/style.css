@@ -557,7 +557,7 @@ body {
     color: white;
     padding: 1.5vh;
     background-color: #364041;
-    border-radius: 0.5em;
+    border-radius: 2em;
     border: 1px solid white;
     font-size: calc(7px + 0.3vw + 0.4vh + .3vmin);
     text-align: center;
@@ -708,6 +708,13 @@ body {
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
     float: right;
     padding: 0.05vh;
+    border-radius: 2em;
+    border: 2px white outset;
+    transition: 0.2s all;
+}
+
+.sendButton input:hover {
+    background-color: black;
 }
 
 /* ----- Footer section ------*/
