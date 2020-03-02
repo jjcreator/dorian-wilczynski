@@ -227,17 +227,6 @@ body {
     background-position: 50% 75%; 
 }
 
-#textbook::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 2;
-}
-
 #gamebook {
     background: url(../images/gamebook.jpg);
     background-size: cover;
@@ -258,7 +247,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.10);
     z-index: 2;
 }
 
@@ -503,6 +492,8 @@ body {
     font-weight: 500;
     letter-spacing: 0.07vw;
     text-transform: uppercase;
+    width: 100%;
+    padding: 2vw;
 }
 
 #storyOne {
