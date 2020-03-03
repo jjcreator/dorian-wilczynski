@@ -1,48 +1,42 @@
-let slidePosition = 0;
-let slideArray = ["stories", "audiobook","gamebook", "textbook"];
-let buttonsArray = ["firstButton", "secondButton", "thirdButton", "fourthButton"];
-let bookArray = ["storyOne", "storyTwo", "storyThree", "bookOne", "audio1", "audio2"];
-let newsCollection = document.getElementsByClassName("newsbox");
-let pagesCollection = document.getElementsByClassName("page");
-let pagesArray;
-let currentPage;
-let pageCounter = 1;
-let rightArrow = document.getElementById("right-arrow");
-let leftArrow = document.getElementById("left-arrow");
-
-// Appear effect for displaying slides / books
+// Appear effect for displaying slides / books //
 
 const appear = (x, arr) => {
-    let grabbed = document.getElementById(arr[x]);
+    let grabbed = arr[x];
     grabbed.style.opacity = (parseFloat(grabbed.style.opacity) + 0.01);
     if (grabbed.style.opacity < 1) {
         setTimeout(appear, 10, x, arr);
     }
 }
 
-// Slideshow - main showcase
+// Slideshow - main showcase //
+
+let looping;
+let slidePosition = 0;
+let slideArray = Array.from(document.getElementsByClassName("slide"));
+let buttonsArray = Array.from(document.getElementsByClassName("buttons"));
+let bookArray = ["storyOne", "storyTwo", "storyThree", "bookOne", "audio1", "audio2"];
 
 const displaySlide = () => {
     stopSlideshow();
     let currentSlide = slideArray[slidePosition];
     let currentButton = buttonsArray[slidePosition];
-    for (let n=0; n<buttonsArray.length; n++) {
-        document.getElementById(buttonsArray[n]).style.backgroundColor = "rgba(0,0,0,0.65)";
-    }
+    buttonsArray.forEach((button)=> {
+        button.style.backgroundColor = "rgba(0,0,0,0.65)";
+    });
     for (let i=0; i<slideArray.length; i++) {
-        if(currentSlide === slideArray[i] && currentButton === buttonsArray[i]) {
-            document.getElementById(currentSlide).style.opacity = 0;
-            document.getElementById(currentSlide).style.display = "flex";
-            document.getElementById(currentButton).style.backgroundColor = "rgba(255, 255, 255, 0.73)";
+        if (currentSlide === slideArray[i] && currentButton === buttonsArray[i]) {
+            currentSlide.style.opacity = 0;
+            currentSlide.style.display = "flex";
+            currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.73)";
             setTimeout(appear(slideArray.indexOf(currentSlide), slideArray), 10);
         }      
-        else document.getElementById(slideArray[i]).style.display = "none";
+        else slideArray[i].style.display = "none";
     }
     startSlideshow();
 }
 
 const nextSlide = () => {
-    if(slidePosition < slideArray.length - 1) slidePosition +=1;
+    if (slidePosition < slideArray.length - 1) slidePosition +=1;
     else slidePosition = 0;
     displaySlide();
 }
@@ -54,7 +48,7 @@ const prevSlide = () => {
 }
 
 const startSlideshow = () => {
-    looping = setInterval(nextSlide, 6000);
+   looping = setInterval(nextSlide, 6000);
 }
 
 const stopSlideshow = () => {
@@ -66,13 +60,19 @@ const setSlide = x => {
     displaySlide();
 }
 
-// News archive
+// News archive //
+
+let pagesArray;
+let rightArrow = document.getElementById("right-arrow");
+let leftArrow = document.getElementById("left-arrow");
 
 const archiveNews = () => {
-    newsArray = Array.from(newsCollection);
-    let news = document.getElementById("news");
+    let newsArray = Array.from(document.getElementsByClassName("newsbox"));
+    let newsSection = document.getElementById("news");
     let n = 1;
+    let currentPage;
     while (newsArray.length > 0) {
+        // Creates a news page or goes to the next one if it is filled
         if (document.getElementById("page" + n)) {
             currentPage = document.getElementById("page" + n);
         }
@@ -81,25 +81,25 @@ const archiveNews = () => {
             currentPage.classList.add("page");
             currentPage.id = "page" + n;
         }
-        news.appendChild(currentPage);
+        // Adds news page to the news section
+        newsSection.appendChild(currentPage);
+        // Fills the page with 3 news items
         for (let i=0; i<3; i++) {
             if (newsArray.length > 0) {
                 currentPage.append(newsArray[0]);
-               newsArray.shift();
+                newsArray.shift();
                 }
             }
         n++;
     }
 }
 
-archiveNews();
-
 const displayPage = (pageNumber) => {
     rightArrow.style.opacity = "1";
     leftArrow.style.opacity = "1";
     rightArrow.style.cursor = "pointer";
     leftArrow.style.cursor = "pointer";
-    pagesArray = Array.from(pagesCollection);
+    pagesArray = Array.from(document.getElementsByClassName("page"));
     pagesArray.forEach(page => {
         page.style.display = "none";
     });
@@ -115,40 +115,71 @@ const displayPage = (pageNumber) => {
     }
 }
 
-displayPage(1);
-
-rightArrow.addEventListener("click", ()=> {
-    if (pageCounter != pagesCollection.length) {
-        pageCounter++;
-        displayPage(pageCounter);
-    }
-    
-
-});
-leftArrow.addEventListener("click", ()=> {
-    if (pageCounter - 1 != 0) {
-        pageCounter--;
-        displayPage(pageCounter)
-    }
-    
-})
-
-// On scroll effects //
-const navbarControl = () => {
-    let currentScrollPos = window.pageYOffset;
-    if(0 < currentScrollPos) {
-    document.getElementById("navbar").style.backgroundColor = "rgb(121, 108, 108)";
-    document.getElementById("navbar").style.background = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
-    document.getElementById("navbar").style.height = "5vh";
-    document.getElementById("navbar").style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
-    document.getElementById("mobile").style.marginTop = "0"
-    }
-    else {document.getElementById("navbar").style.backgroundColor = "";
-    if (document.getElementById("mobile").style.display != "flex") document.getElementById("navbar").style.background = "none"
-    document.getElementById("navbar").style.height = "6vh";
-    document.getElementById("navbar").style.boxShadow = "none";
-    document.getElementById("mobile").style.marginTop = "1vh";
+const arrows = () => {
+    let pageCounter = 1;
+    rightArrow.addEventListener("click", () => {
+        if (pageCounter != pagesArray.length) {
+            pageCounter++;
+            displayPage(pageCounter);
+        }  
+    });
+    leftArrow.addEventListener("click", () => {
+        if (pageCounter - 1 != 0) {
+            pageCounter--;
+            displayPage(pageCounter)
+        } 
+    })
 }
+
+archiveNews();
+displayPage(1);
+arrows();
+
+// Navbar animations //
+
+let navbar = document.getElementById("navbar");
+
+const navbarControl = () => {
+    let currentScrollPos = pageYOffset; 
+    if (0 < currentScrollPos) {
+        navbar.style.backgroundColor = "rgb(121, 108, 108)";
+        navbar.style.background = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
+        navbar.style.height = "5vh";
+        navbar.style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
+        navbar.style.marginTop = "0"
+    }
+    else {
+        navbar.style.backgroundColor = "";
+        if (mobileNavbar.style.display != "flex")  {
+            navbar.style.background = "none";
+            navbar.style.height = "6vh";
+            navbar.style.boxShadow = "none";
+        }
+            
+    }
+}
+
+// Mobile menu //
+
+let mobileNavbar = document.getElementById("mobile");
+
+const expandMenu = () => {
+    let background = navbar.style.background;
+    let hamburgerMenu = document.getElementById("hamburgerMenu");
+    if (background != "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)") {
+       navbar.style.background = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
+    }
+    if (mobileNavbar.style.display != "flex") {
+        mobileNavbar.style.display = "flex"
+        hamburgerMenu.src = "./images/xicon.png";
+        if (getComputedStyle(navbar.height) === "6vh;") {
+            mobileNavbar.style.marginTop = "1vh";
+        }
+    }
+    else {
+        mobileNavbar.style.display = "none";
+        hamburgerMenu.src = "./images/menuicon.png";
+    }
 }
 
 const displayBook = x => {
@@ -160,24 +191,6 @@ const displayBook = x => {
     setTimeout(appear(bookArray.indexOf(bookArray[x]), bookArray), 10);
 }
 
-// Mobile menu //
-
-const expandMenu = () => {
-    let background = document.getElementById("navbar").style.background;
-    if (background != "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)") {
-       document.getElementById("navbar").style.background = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
-    }
-    if (document.getElementById("mobile").style.display === "" || document.getElementById("mobile").style.display === "none") {
-        document.getElementById("mobile").style.display = "flex"
-        document.getElementById("hamburgerMenu").src = "./images/xicon.png";
-        if (getComputedStyle(document.getElementById("navbar")) === "6vh;") {
-            document.getElementById("mobile").style.marginTop = "1vh";
-        }
-    }
-    else {document.getElementById("mobile").style.display = "none";
-    document.getElementById("hamburgerMenu").src = "./images/menuicon.png";
-    }
-}
 
 startSlideshow();
-window.onscroll = navbarControl;
+onscroll = navbarControl;
