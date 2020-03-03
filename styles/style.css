@@ -172,10 +172,9 @@ body {
 .slide h3 {
     text-align: center;
     text-shadow: 1px 1px 2px black;
-    font-size: calc(13px + 0.25vw + 0.25vh + .2vmin);
+    font-size: calc(13px + 0.25vw + 0.25vh + .3vmin);
     z-index: 3;
     padding: 20px;
-
 }
 
 .topButton:hover {
