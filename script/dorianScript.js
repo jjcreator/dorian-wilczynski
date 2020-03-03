@@ -1,4 +1,4 @@
-// Appear effect for displaying slides / books //
+// Appear effect for displaying slides / books / news pages //
 
 const appear = (x, arr) => {
     let grabbed = arr[x];
@@ -14,7 +14,6 @@ let looping;
 let slidePosition = 0;
 let slideArray = Array.from(document.getElementsByClassName("slide"));
 let buttonsArray = Array.from(document.getElementsByClassName("buttons"));
-let bookArray = ["storyOne", "storyTwo", "storyThree", "bookOne", "audio1", "audio2"];
 
 const displaySlide = () => {
     stopSlideshow();
@@ -28,7 +27,7 @@ const displaySlide = () => {
             currentSlide.style.opacity = 0;
             currentSlide.style.display = "flex";
             currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.73)";
-            setTimeout(appear(slideArray.indexOf(currentSlide), slideArray), 10);
+            appear(slideArray.indexOf(currentSlide), slideArray);
         }      
         else slideArray[i].style.display = "none";
     }
@@ -59,6 +58,11 @@ const setSlide = x => {
     slidePosition = x - 1;
     displaySlide();
 }
+
+document.querySelector(".next").addEventListener("click", nextSlide);
+document.querySelector(".prev").addEventListener("click", prevSlide);
+
+startSlideshow();
 
 // News archive //
 
@@ -104,6 +108,8 @@ const displayPage = (pageNumber) => {
         page.style.display = "none";
     });
     pagesArray[pageNumber - 1].style.display = "block";
+    pagesArray[pageNumber - 1].style.opacity = 0;
+    appear(pageNumber - 1, pagesArray );
     document.getElementById("page-number").textContent = "STRONA " + pageNumber + "/" + pagesArray.length;
     if (pageNumber === 1) {
         leftArrow.style.opacity = "0.2";
@@ -138,26 +144,26 @@ arrows();
 // Navbar animations //
 
 let navbar = document.getElementById("navbar");
+let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)"
 
 const navbarControl = () => {
     let currentScrollPos = pageYOffset; 
     if (0 < currentScrollPos) {
         navbar.style.backgroundColor = "rgb(121, 108, 108)";
-        navbar.style.background = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
-        navbar.style.height = "5vh";
+        navbar.style.background = myGradient ;
+        navbar.style.height = "6vh";
         navbar.style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
-        navbar.style.marginTop = "0"
     }
     else {
-        navbar.style.backgroundColor = "";
         if (mobileNavbar.style.display != "flex")  {
             navbar.style.background = "none";
-            navbar.style.height = "6vh";
+            navbar.style.height = "7vh";
             navbar.style.boxShadow = "none";
-        }
-            
+        }   
     }
 }
+
+onscroll = navbarControl;
 
 // Mobile menu //
 
@@ -166,13 +172,13 @@ let mobileNavbar = document.getElementById("mobile");
 const expandMenu = () => {
     let background = navbar.style.background;
     let hamburgerMenu = document.getElementById("hamburgerMenu");
-    if (background != "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)") {
-       navbar.style.background = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
+    if (background != myGradient) {
+       navbar.style.background = myGradient;
     }
     if (mobileNavbar.style.display != "flex") {
         mobileNavbar.style.display = "flex"
         hamburgerMenu.src = "./images/xicon.png";
-        if (getComputedStyle(navbar.height) === "6vh;") {
+        if (getComputedStyle(navbar.height) === "7vh;") {
             mobileNavbar.style.marginTop = "1vh";
         }
     }
@@ -182,15 +188,21 @@ const expandMenu = () => {
     }
 }
 
+// Display books
+
+let bookArray = Array.from(document.getElementsByClassName("bookcaseBody"));
+let bookItems = Array.from(document.getElementsByClassName("bookItem"));
+
 const displayBook = x => {
-    for (let i=0; i<bookArray.length; i++) {
-        document.getElementById(bookArray[i]).style.display = "none";
-    }
-    document.getElementById(bookArray[x]).style.display = "flex";
-    document.getElementById(bookArray[x]).style.opacity = 0;
-    setTimeout(appear(bookArray.indexOf(bookArray[x]), bookArray), 10);
+    bookArray.forEach((bookDescription)=> {
+        bookDescription.style.display = "none"
+    })
+    bookArray[x].style.display = "flex";
+    bookArray[x].style.opacity = 0;
+    appear(bookArray.indexOf(bookArray[x]), bookArray);
 }
-
-
-startSlideshow();
-onscroll = navbarControl;
+bookItems.forEach((item)=> {
+    item.addEventListener("click", () => {
+        displayBook(bookItems.indexOf(item))
+    })
+})
