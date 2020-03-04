@@ -81,7 +81,6 @@ topButtons.forEach((button) => {
 });
 
 setSlide(1);
-startSlideshow();
 
 // News archive //
 
@@ -171,14 +170,20 @@ const navbarControl = () => {
     if (0 < currentScrollPos) {
         navbar.style.backgroundColor = "rgb(121, 108, 108)";
         navbar.style.background = myGradient ;
-        navbar.style.height = "6vh";
+        navbar.style.height = "7vh";
         navbar.style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
+        mobileNavbar.style.top = "7vh";
     }
     else {
+        navbar.style.height = "8vh";
+        navbar.style.boxShadow = "none"; 
+
         if (mobileNavbar.style.display != "flex") {
             navbar.style.background = "none";
-            navbar.style.height = "7vh";
-            navbar.style.boxShadow = "none"; 
+        }
+        else {
+            mobileNavbar.style.top = "8vh";
+
         }
     }
 }

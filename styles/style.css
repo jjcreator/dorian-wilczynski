@@ -2,7 +2,8 @@
 
 :root {
     --primary-color: rgb(54, 64, 65);
-
+    --secondary-color: rgb(115, 115, 115);
+    --darker-primary: rgb(54, 54, 54);;
 }
 
 * {
@@ -13,7 +14,6 @@
 html {
     font-family: 'Baskervville', serif;
     scroll-behavior: smooth;
-    
 }
 
 body {
@@ -24,10 +24,10 @@ body {
 
 /*---------- Navigation ----------*/
 
-header {
+#header {
     display: flex;
-    justify-content: flex-start;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 #navbar {
@@ -38,17 +38,58 @@ header {
         -ms-flex-pack: start;
             justify-content: center;
     position: fixed;
-    top:0;
-    left:0;
-    width:100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 8vh;
+    min-height: 30px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    overflow: hidden;
-    z-index: 21;
+    z-index: 100;
     -webkit-transition: 0.35s;
     transition: 0.35s;
+}
+
+#authorName {
+    text-shadow: 1px 1px 2px black;
+    margin: 0 auto 0 0;
+    font-size: calc(1px + 0.8vw + 0.8vh + .6vmin);
+    text-align: center;
+    min-width: 20%;
+    font-family: 'Oswald', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+}
+
+#authorName a {
+    text-decoration: none;
+    color: white;
+}
+
+#authorName:hover {
+    background-color: transparent;
+}
+
+.navItem {
+    text-decoration: none;
+    color: white;
+    width: 12%;
+    font-family: 'Oswald', sans-serif;
+    font-size: calc(0.5vw + 0.5vh + .5vmin);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navItem:nth-child(5) {
+    margin-right: 10vw;
 }
 
 #mobile {
@@ -59,28 +100,15 @@ header {
         -ms-flex-direction: column;
             flex-direction: column;
     position: fixed;
-    top: 6vh;
+    top: 7vh;
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
     overflow: hidden;
-    z-index: 21;
+    z-index: 100;
     width: 100%;
     margin-top: 0;
-}
-
-.navItem {
-    text-decoration: none;
-    color: white;
-    width: 12%;
-    font-family: 'Oswald', sans-serif;
-    font-size: calc(0.5vw + 0.5vh + .5vmin);
-    padding: 1em;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: 0.35s;
 }
 
 .navItemMobile {
@@ -111,29 +139,10 @@ header {
     width: 100%;
 }
 
-#navbar a:hover, #mobile a:hover {
+.navItem:hover, #mobile a:hover {
     background-color: #737373;
 }
 
-#authorName {
-    text-shadow: 1px 1px 2px black;
-    margin: 0 auto 0 0;
-    font-size: calc(1px + 0.8vw + 0.8vh + .6vmin);
-    padding: 1em;
-    text-align: center;
-    justify-self: center;  
-    min-width: 20%;
-    font-family: 'Oswald', sans-serif;
-}
-
-#authorName a {
-    text-decoration: none;
-    color: white;
-}
-
-#authorName a:hover {
-    background-color: inherit;
-}
 
 /*----------- Main page -----------*/
 
@@ -172,7 +181,7 @@ header {
     display: none;
     width: 100%;
     align-items: center;
-    }
+}
 
 .slide h1 {
     font-size: calc(10px + 1.7vw + 1.7vh + .5vmin);
@@ -182,8 +191,6 @@ header {
     font-family: 'Oswald', sans-serif;
     text-shadow: 1px 1px 2px black;
     z-index: 3;
-    
-    
 }
 
 .slide h3 {
@@ -194,18 +201,10 @@ header {
     padding: 20px;
 }
 
-.topButton:hover {
-    -webkit-transition: ease 0.2s;
-    transition: ease 0.5s;
-    background-color: rgba(54, 64, 65, 1);
-    text-shadow: 3px 3px 10px black;
-
-}
-
 .topButton {
     font-size: calc(6px + 0.3vw + 0.3vh + .3vmin);
     text-align: center;
-    margin: 30vh auto 0 auto;
+    margin-top: 30vh;
     padding: calc(5px + 0.3vw + 0.3vh + .5vmin);
     min-width: 13%;
     max-width: -webkit-fit-content;
@@ -225,6 +224,14 @@ header {
     color: white;
     text-shadow: 1px 1px 10px black;
     z-index: 3;
+}
+
+.topButton:hover {
+    -webkit-transition: ease 0.2s;
+    transition: ease 0.5s;
+    background-color: rgba(54, 64, 65, 1);
+    text-shadow: 3px 3px 10px black;
+
 }
 
 #audiobook {
@@ -468,8 +475,8 @@ header {
     text-align: center;
 }
 
-#booklist div:nth-child(even) {
-    background-color: #364041da;
+.bookItem:nth-child(even) {
+    background-color: rgba(54, 64, 65, 0.855);
 }
 
 .bookItem {
@@ -560,7 +567,7 @@ header {
     text-decoration: none;
     color: white;
     padding: 2vh;
-    background-color: #364041;
+    background-color: rgb(54, 64, 65);
     border-radius: 2em;
     border: 1px solid white;
     font-size: calc(7px + 0.3vw + 0.4vh + .3vmin);
@@ -646,7 +653,7 @@ header {
     padding: calc(0.5vw + 0.5vh + .5vmin);
     -webkit-box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
             box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
-    background-color: #364041;
+    background-color: rgb(54, 64, 65);
     text-align: left;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -707,7 +714,7 @@ header {
     min-width: 15%;
     height: 100%;
     color: white;
-    background-color: #363636;
+    background-color: rgb(54, 54, 54);
     font-family: Georgia, 'Times New Roman', Times, serif, serif;
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
     float: right;
@@ -804,10 +811,6 @@ footer img:hover {
 
 @media only screen and (max-width: 480px) {
 
-    #navbar {
-        justify-content: flex-start;
-    }
-
     .navItem {
         display: none;
     }
@@ -842,11 +845,7 @@ footer img:hover {
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-    
-    #navbar {
-        justify-content: flex-start;
-    }
-
+  
     .publishDate {
         display: block;
         float: none;
@@ -863,7 +862,7 @@ footer img:hover {
     }
 
     #authorName {
-        display: block;
+        display: flex;
         width: 30%;
     }
     .news {
@@ -874,12 +873,14 @@ footer img:hover {
     .bookDescription p {
         text-align: left;
     }
+
     #contactBox form {
         width: 75%;
     }
 }
 
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
+
     .publishDate {
         display: block;
         float: none;
