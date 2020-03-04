@@ -144,7 +144,8 @@ arrows();
 // Navbar animations //
 
 let navbar = document.getElementById("navbar");
-let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)"
+let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
+let hamburgerMenu = document.getElementById("hamburgerMenu");
 
 const navbarControl = () => {
     let currentScrollPos = pageYOffset; 
@@ -155,11 +156,11 @@ const navbarControl = () => {
         navbar.style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
     }
     else {
-        if (mobileNavbar.style.display != "flex")  {
+        if (mobileNavbar.style.display != "flex") {
             navbar.style.background = "none";
             navbar.style.height = "7vh";
-            navbar.style.boxShadow = "none";
-        }   
+            navbar.style.boxShadow = "none"; 
+        }
     }
 }
 
@@ -168,25 +169,33 @@ onscroll = navbarControl;
 // Mobile menu //
 
 let mobileNavbar = document.getElementById("mobile");
+let mobileMenuItems = Array.from(document.getElementsByClassName("navItemMobile"));
 
 const expandMenu = () => {
     let background = navbar.style.background;
-    let hamburgerMenu = document.getElementById("hamburgerMenu");
     if (background != myGradient) {
        navbar.style.background = myGradient;
     }
     if (mobileNavbar.style.display != "flex") {
         mobileNavbar.style.display = "flex"
         hamburgerMenu.src = "./images/xicon.png";
-        if (getComputedStyle(navbar.height) === "7vh;") {
-            mobileNavbar.style.marginTop = "1vh";
-        }
     }
     else {
         mobileNavbar.style.display = "none";
         hamburgerMenu.src = "./images/menuicon.png";
     }
 }
+
+hamburgerMenu.addEventListener("click", expandMenu);
+mobileMenuItems.forEach((item)=> {
+    item.addEventListener("click", expandMenu);
+})
+addEventListener("resize", ()=> {
+    if (innerWidth > 768) {
+        mobileNavbar.style.display = "none";
+        hamburgerMenu.src = "./images/menuicon.png"
+    }
+})
 
 // Display books
 
@@ -205,4 +214,4 @@ bookItems.forEach((item)=> {
     item.addEventListener("click", () => {
         displayBook(bookItems.indexOf(item))
     })
-})
+});
