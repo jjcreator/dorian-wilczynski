@@ -14,6 +14,7 @@ let looping;
 let slidePosition = 0;
 let slideArray = Array.from(document.getElementsByClassName("slide"));
 let buttonsArray = Array.from(document.getElementsByClassName("buttons"));
+let topButtons = Array.from(document.getElementsByClassName("topButton"));
 
 const displaySlide = () => {
     stopSlideshow();
@@ -21,6 +22,9 @@ const displaySlide = () => {
     let currentButton = buttonsArray[slidePosition];
     buttonsArray.forEach((button)=> {
         button.style.backgroundColor = "rgba(0,0,0,0.65)";
+        button.addEventListener("click", ()=> {
+            setSlide(buttonsArray.indexOf(button) + 1)
+        })
     });
     for (let i=0; i<slideArray.length; i++) {
         if (currentSlide === slideArray[i] && currentButton === buttonsArray[i]) {
@@ -62,6 +66,21 @@ const setSlide = x => {
 document.querySelector(".next").addEventListener("click", nextSlide);
 document.querySelector(".prev").addEventListener("click", prevSlide);
 
+topButtons.forEach((button) => {
+    button.addEventListener("mouseover", stopSlideshow);
+    button.addEventListener("mouseout", startSlideshow);
+    if (topButtons.indexOf(button) == 0) button.addEventListener("click", ()=> {
+        displayBook(0);
+    });
+    if (topButtons.indexOf(button) == 1) button.addEventListener("click", ()=> {
+        displayBook(4);
+    });
+    if (topButtons.indexOf(button) == 3) button.addEventListener("click", ()=> {
+        displayBook(3);
+    });
+});
+
+setSlide(1);
 startSlideshow();
 
 // News archive //

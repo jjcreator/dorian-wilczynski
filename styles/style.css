@@ -77,6 +77,10 @@ header {
     font-size: calc(0.5vw + 0.5vh + .5vmin);
     padding: 1em;
     text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navItemMobile {
