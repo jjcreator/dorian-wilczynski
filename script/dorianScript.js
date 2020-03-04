@@ -51,7 +51,7 @@ const prevSlide = () => {
 }
 
 const startSlideshow = () => {
-   looping = setInterval(nextSlide, 6000);
+   looping = setInterval(nextSlide, 7000);
 }
 
 const stopSlideshow = () => {

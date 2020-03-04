@@ -79,7 +79,7 @@ body {
 .navItem {
     text-decoration: none;
     color: white;
-    width: 12%;
+    width: 10%;
     font-family: 'Oswald', sans-serif;
     font-size: calc(0.6vw + 0.6vh + .6vmin);
     text-align: center;
@@ -88,8 +88,8 @@ body {
     justify-content: center;
     align-items: center;
     transition: all 0.1s ease;
-    border-top-right-radius: 2em;
-    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 10em;
+    border-bottom-left-radius: 10em;
     text-transform: lowercase;
 }
 
@@ -171,9 +171,9 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -192,10 +192,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: 100%;
 }
 
 .slide h1 {
-    font-size: calc(10px + 1.7vw + 1.7vh + .5vmin);
+    font-size: calc(10px + 1.8vw + 1.8vh + .6vmin);
     text-align: center;
     letter-spacing: 0.09em;
     font-family: 'Oswald', sans-serif;
@@ -203,50 +204,53 @@ body {
     z-index: 3;
     width: 100%;
     position: absolute;
-    top: 15%;
+    top: 18%;
 
 }
 
 .slide h3 {
     text-align: center;
-    text-shadow: 1px 1px 2px black;
-    font-size: calc(10px + 0.25vw + 0.25vh + .3vmin);
+    text-shadow: 0px 0px 20px black;
+    font-size: calc(10px + 0.3vw + 0.3vh + .4vmin);
     z-index: 3;
     width: 100%;
     transition: all 1s ease-in;
     position: absolute;
-    top: 35%;
+    top: 40%;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: 500;
 }
 
 .topButton {
     font-size: calc(6px + 0.3vw + 0.3vh + .3vmin);
     text-align: center;
-    width: 12%;
+    width: 15%;
     min-width: fit-content;
     padding: calc(6px + 0.3vw + 0.3vh + .5vmin);
     background-color: rgba(54, 64, 65, 0.7);
     display: block;
     border: 2px white solid;;
-    text-transform: lowercase;
+    text-transform: uppercase;
     text-decoration: none;
     font-weight: lighter;
     font-family: 'Oswald', sans-serif;
-    transition: ease 0.3s;
+    transition: ease 0.5s;
     border-radius: 2em;
     color: white;
     text-shadow: 1px 1px 10px black;
     z-index: 3;
     position: absolute;
-    bottom: 20%;
+    bottom: 15%;
 }
 
 .topButton:hover {
     -webkit-transition: ease 0.3s;
-    transition: ease 0.3s;
+    transition: ease 0.5s;
     background-color: rgba(54, 64, 65, 1);
     text-shadow: 3px 3px 10px black;
-    width: 14%;
-
+    color: black;
+    background-color: white;
 }
 
 #audiobook {
@@ -256,9 +260,10 @@ body {
 }
 
 #textbook {
-    background: url(../images/book1.jpg);
+    background: url(../images/skycastle.jpg);
     background-size: cover;
-    background-position: 50% 75%; 
+    background-position: 50% 75%;
+    background-position: 50% 35%;
 }
 
 #gamebook {
@@ -268,20 +273,21 @@ body {
 }
 
 #stories {
-    background: url(../images/skycastle.jpg);
+    background: url(../images/book1.jpg);
     display: flex;
     background-size: cover;
-    background-position: 50% 35%; 
+    background-position: 50% 35%;
+    background-position: 50% 75%; 
 }
 
-.slide::before {
+#audiobook::before, #textbook::before, #stories::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.10);
+    background-color: rgba(0, 0, 0, 0.20);
     z-index: 2;
 }
 
@@ -321,8 +327,10 @@ body {
 #buttonHolder {
     position: absolute;
     bottom: 2vh;
-    margin: 0 auto;
     z-index: 19;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .buttons {
