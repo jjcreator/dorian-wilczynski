@@ -63,6 +63,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0;
+    text-transform: none;
 
 }
 
@@ -80,16 +81,26 @@ body {
     color: white;
     width: 12%;
     font-family: 'Oswald', sans-serif;
-    font-size: calc(0.5vw + 0.5vh + .5vmin);
+    font-size: calc(0.6vw + 0.6vh + .6vmin);
     text-align: center;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.1s ease;
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    text-transform: lowercase;
 }
 
 .navItem:nth-child(5) {
     margin-right: 10vw;
+}
+
+.navItem:hover {
+    background-color: rgba(255, 255, 255, 0.596);
+    color: black;
+    
 }
 
 #mobile {
@@ -139,7 +150,7 @@ body {
     width: 100%;
 }
 
-.navItem:hover, #mobile a:hover {
+#mobile a:hover {
     background-color: #737373;
 }
 
@@ -174,63 +185,67 @@ body {
 
 .slide {
     letter-spacing: 0.15em;
-    background-size: cover;
+    display: none;
     flex-direction: column;
     justify-content: center;
-    background-repeat: no-repeat;
-    display: none;
-    width: 100%;
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }
 
 .slide h1 {
     font-size: calc(10px + 1.7vw + 1.7vh + .5vmin);
     text-align: center;
-    padding: 1em;
     letter-spacing: 0.09em;
     font-family: 'Oswald', sans-serif;
     text-shadow: 1px 1px 2px black;
     z-index: 3;
+    width: 100%;
+    position: absolute;
+    top: 15%;
+
 }
 
 .slide h3 {
     text-align: center;
     text-shadow: 1px 1px 2px black;
-    font-size: calc(13px + 0.25vw + 0.25vh + .3vmin);
+    font-size: calc(10px + 0.25vw + 0.25vh + .3vmin);
     z-index: 3;
-    padding: 20px;
+    width: 100%;
+    transition: all 1s ease-in;
+    position: absolute;
+    top: 35%;
 }
 
 .topButton {
     font-size: calc(6px + 0.3vw + 0.3vh + .3vmin);
     text-align: center;
-    margin-top: 30vh;
-    padding: calc(5px + 0.3vw + 0.3vh + .5vmin);
-    min-width: 13%;
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
-    max-width: 30%;
-    max-width: fit-content;
+    width: 12%;
+    min-width: fit-content;
+    padding: calc(6px + 0.3vw + 0.3vh + .5vmin);
     background-color: rgba(54, 64, 65, 0.7);
     display: block;
     border: 2px white solid;;
-    text-transform: uppercase;
+    text-transform: lowercase;
     text-decoration: none;
     font-weight: lighter;
     font-family: 'Oswald', sans-serif;
-    align-self: center;
-    transition: ease 0.5s;
+    transition: ease 0.3s;
     border-radius: 2em;
     color: white;
     text-shadow: 1px 1px 10px black;
     z-index: 3;
+    position: absolute;
+    bottom: 20%;
 }
 
 .topButton:hover {
-    -webkit-transition: ease 0.2s;
-    transition: ease 0.5s;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
     background-color: rgba(54, 64, 65, 1);
     text-shadow: 3px 3px 10px black;
+    width: 14%;
 
 }
 

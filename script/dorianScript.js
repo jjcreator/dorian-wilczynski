@@ -2,7 +2,7 @@
 
 const appear = (x, arr) => {
     let grabbed = arr[x];
-    grabbed.style.opacity = (parseFloat(grabbed.style.opacity) + 0.01);
+    grabbed.style.opacity = (parseFloat(grabbed.style.opacity) + 0.015);
     if (grabbed.style.opacity < 1) {
         setTimeout(appear, 10, x, arr);
     }
