@@ -87,9 +87,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.1s ease;
-    border-bottom-right-radius: 10em;
-    border-bottom-left-radius: 10em;
+    border-bottom-right-radius: 2em;
+    border-top-left-radius: 2em;
     text-transform: lowercase;
 }
 
@@ -100,7 +99,6 @@ body {
 .navItem:hover {
     background-color: rgba(255, 255, 255, 0.596);
     color: black;
-    
 }
 
 #mobile {
@@ -204,7 +202,7 @@ body {
     z-index: 3;
     width: 100%;
     position: absolute;
-    top: 18%;
+    top: 30%;
 
 }
 
@@ -214,9 +212,8 @@ body {
     font-size: calc(10px + 0.3vw + 0.3vh + .4vmin);
     z-index: 3;
     width: 100%;
-    transition: all 1s ease-in;
     position: absolute;
-    top: 40%;
+    top: 45%;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 0.1em;
     font-weight: 500;
@@ -228,14 +225,14 @@ body {
     width: 15%;
     min-width: fit-content;
     padding: calc(6px + 0.3vw + 0.3vh + .5vmin);
-    background-color: rgba(54, 64, 65, 0.7);
+    background-color: rgba(54, 64, 65, 1);
     display: block;
     border: 2px white solid;;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: lighter;
     font-family: 'Oswald', sans-serif;
-    transition: ease 0.5s;
+    transition: all ease 0.15s;
     border-radius: 2em;
     color: white;
     text-shadow: 1px 1px 10px black;
@@ -245,8 +242,8 @@ body {
 }
 
 .topButton:hover {
-    -webkit-transition: ease 0.3s;
-    transition: ease 0.5s;
+    -webkit-transition: ease 0.15s;
+    transition: ease 0.15s;
     background-color: rgba(54, 64, 65, 1);
     text-shadow: 3px 3px 10px black;
     color: black;
@@ -363,20 +360,79 @@ body {
 }
 
 #news {
-    min-height: 88vh;
+    min-height: 90vh;
+    padding-top: 10vh;
+}
+
+.top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.empty-container {
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-container h1 {
+    text-align: center;
+    font-size: calc(5px + 1vw + 1vh + 1vmin);
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%
 }
 
 .news h1 {
-    text-align: center;
+    width: 100%;
     font-size: calc(5px + 1vw + 1vh + 1vmin);
-    padding-top: 7vh;
-    padding-bottom: 0.5em;
     font-family: 'Oswald', sans-serif;
     font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#news-button {
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 20%;
+    margin-right: 1em;
+    padding: 0.8em;
+    background: linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%);
+    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
+    line-height: 1.6em;
+    -webkit-box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
+            box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
+    position: relative;
+    text-justify: auto;
+    text-align: justify;
+}
+
+.arrows {
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.arrow {
+    min-width: 40%;
+    cursor: pointer;
 }
 
 .newsbox {
-    background-color: #737373;
+    background-color: var(--secondary-color);
     padding: 0;
     padding-bottom: 1em;
     margin: 1em;
@@ -406,39 +462,6 @@ body {
 
 .newsText a {
     color: white;
-}
-
-#news-button {
-    font-family: 'Oswald', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    margin: 0 1em 0 auto;
-    padding: 0.5em;
-    background: linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%);
-    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
-    line-height: 1.6em;
-    -webkit-box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
-            box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
-    position: relative;
-    text-justify: auto;
-    text-align: justify;
-}
-
-.arrows {
-    margin-top: 0.5em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.arrow {
-    min-width: 33%;
-    cursor: pointer;
 }
 
 .parallax {
