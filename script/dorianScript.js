@@ -162,7 +162,7 @@ arrows();
 // Navbar animations //
 
 let navbar = document.getElementById("navbar");
-let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 100%)";
+let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 50%, rgba(121,108,108,1) 100%)";
 let hamburgerMenu = document.getElementById("hamburgerMenu");
 
 const navbarControl = () => {

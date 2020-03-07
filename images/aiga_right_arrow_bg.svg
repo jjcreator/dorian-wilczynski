@@ -20,7 +20,7 @@
   >
   <sodipodi:namedview
       id="base"
-      bordercolor="#666666"
+      bordercolor="#fffff"
       inkscape:pageshadow="2"
       inkscape:window-width="640"
       pagecolor="#ffffff"
@@ -41,7 +41,7 @@
     >
     <path
         id="path3355"
-        style="stroke:#ffffff;stroke-width:3.408;fill:#000000"
+        style="stroke:rgb(115, 115, 115);stroke-width:7.408;fill:rgb(115, 115, 115)"
         d="m82.432 17.924c-41.335 0-64.571 21.371-64.571 65.036v450.12c0 40.84 20.891 62.23 62.192 62.23h452.03c41.3 0 62.22-20.32 62.22-62.23v-450.12c0-42.6-20.92-65.036-63.52-65.036 0 0-448.49-0.142-448.35 0z"
     />
     <path
