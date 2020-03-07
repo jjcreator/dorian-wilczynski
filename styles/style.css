@@ -1,9 +1,9 @@
 /*---------- General Rules ----------*/
 
 :root {
-    --primary-color: #364041;
-    --secondary-color: rgba(115,115,115);
-    --darker-primary: rgba(54, 64, 65, 0.5);
+    --primary-color: rgb(54, 64, 65);
+    --secondary-color: rgb(83, 97, 98);
+    --transparent-primary: rgba(54, 64, 65, 0.5);
     --text-color: white;
 }
 
@@ -65,7 +65,7 @@ body {
     align-items: center;
     padding: 0;
     text-transform: none;
-
+    color: transparent;
 }
 
 #authorName a {
@@ -90,12 +90,11 @@ body {
     align-items: center;
     border-bottom-right-radius: 2em;
     border-top-left-radius: 2em;
-    
     text-transform: lowercase;
 }
 
 .navItem:nth-child(5) {
-    margin-right: 10vw;
+    margin-right: 5vw;
 }
 
 .navItem:hover {
@@ -129,6 +128,7 @@ body {
     font-size: calc(0.7vw + 0.7vh + .7vmin);
     padding: 1em;
     text-align: center;
+    text-transform: lowercase;
 }
 
 #hamburgerMenu {
@@ -196,7 +196,7 @@ body {
 }
 
 .slide h1 {
-    font-size: calc(18px + 1.8vw + 1.8vh + .6vmin);
+    font-size: calc(8px + 1.3vw + 1.3vh + .6vmin);
     text-align: center;
     letter-spacing: 0.09em;
     font-family: 'Oswald', sans-serif;
@@ -204,55 +204,57 @@ body {
     z-index: 3;
     width: 100%;
     position: absolute;
-    top: 22%;
+    top: 25%;
+    font-family: "Fondamento", cursive;
 }
 
 .slide h3 {
     text-align: center;
     text-shadow: 0px 0px 20px black;
-    font-size: calc(10px + 0.3vw + 0.3vh + .4vmin);
+    font-size: calc(10px + 0.4vw + 0.4vh + .4vmin);
     z-index: 3;
-    width: 100%;
+    width: 50%;
     position: absolute;
-    top: 42%;
+    top: 40%;
     letter-spacing: 0.1em;
     font-weight: 500;
+    font-family: "Oswald", cursive;
+    text-justify: auto;
+    font-family: "Fondamento", cursive;
 }
 
 .topButton {
     font-size: calc(7px + 0.3vw + 0.3vh + .3vmin);
-    width: 12%;
+    width: 14%;
     min-width: fit-content;
     padding: calc(6px + 0.3vw + 0.3vh + .5vmin); 
     z-index: 3;
     position: absolute;
     bottom: 10%;
+    font-family: "Fondamento", cursive;
 }
 
 .btn {
-    background-color: rgba(54, 64, 65, 0.7);
+    background-color: rgba(5, 102, 141, 0.478);
     text-align: center;
     color: white;
-    display: block;
     border: 2px white solid;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: lighter;
     font-family: 'Oswald', sans-serif;
     transition: all ease 0.25s; 
-    border-radius: 2em;
     text-shadow: 1px 1px 10px black;
+    border-bottom-right-radius: 2em;
+    border-top-left-radius: 2em;
 }
 
 .btn:hover {
-    background-color: rgba(54, 64, 65, 1);
     -webkit-transition: ease 0.15s;
-    transition: ease 0.25s;
+    transition: all ease 0.25s; 
     text-shadow: 3px 3px 10px black;
-    background-color: rgb(5, 102, 141);;
+    background-color: rgb(5, 102, 141)
 }
-
-
 
 #audiobook {
     background: url(../images/tree.jpg);
@@ -293,6 +295,7 @@ body {
 }
 
 .prev, .next {
+    display: none;
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -332,9 +335,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 19;
-    width: 14%;
-    background-color: var(--primary-color);
+    width: 15%;
+    background-color: var(--transparent-primary);
     height: 5%;
     border-top-right-radius: 2em;
     padding-right: 1em;
@@ -362,6 +364,29 @@ body {
     background-color: rgba(0,0,0,0.65);
 }
 
+#social-media-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 25;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 10%;
+    min-height: 10%;
+}
+
+.socialMediaTop {
+    width: 3vw;
+    min-width: 25px;
+    opacity: 80%;
+    display: block;
+}
+
+.socialMediaTop:hover {
+    opacity: 1;
+}
+
 /* ---------News section--------- */
 
 .news {
@@ -372,6 +397,7 @@ body {
 #news {
     min-height: 90vh;
     padding-top: 10vh;
+    position: relative;
 }
 
 .top-container {
@@ -383,6 +409,7 @@ body {
 .empty-container {
     width: 30%;
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
 }
@@ -396,26 +423,41 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    font-family: "Fondamento", cursive;
 }
 
 .top-container h1 {
     width: 30%;
     font-size: calc(5px + 1vw + 1vh + 1vmin);
-    font-family: 'Oswald', sans-serif;
     font-weight: lighter;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.news-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-right: 1em;
+}
+
+#page-number {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    font-size: calc(5px + 0.4vw + 0.4vh + .3vmin);
+}
+
 .arrows {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 22%;
+    width: 100%;
     border-radius: 2em;
     background-color: rgb(115, 115, 115);
-    margin-right: 1em;
     overflow: hidden;
 }
 
@@ -430,13 +472,6 @@ body {
 
 .arrow img {
     width: 70%;
-}
-
-#page-number {
-    font-family: "Oswald", sans-serif;
-    width: 100%;
-    margin-left: 1.5em;
-    display: none;
 }
 
 .newsbox {
@@ -457,6 +492,7 @@ body {
 .newsHeader {
     padding: 0.75em 1em;
     display: inline-block;
+    font-family: "Fondamento", cursive;
 }
 
 .publishDate {
@@ -484,6 +520,11 @@ body {
     background-repeat: no-repeat;
 }
 
+.bottom-container {
+    display: flex;
+    width: 100%;
+}
+
 /* -------- Books section -------- */
 
 #books {
@@ -495,7 +536,7 @@ body {
     text-align: center;
     padding-top: 10vh;
     padding-bottom: 0.5em;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Fondamento", cursive;
     font-weight: lighter;
 }
 
@@ -532,7 +573,7 @@ body {
 }
 
 .bookItem:nth-child(even) {
-    background-color: var(--darker-primary);
+    background-color: var(--transparent-primary);
 }
 
 .bookItem {
@@ -555,6 +596,7 @@ body {
             align-items: center;
     opacity: 1;
     color: white;
+    
 }
 
 .bookItem:hover {
@@ -566,11 +608,10 @@ body {
     display: inline-block;
     font-size: calc(5px + 0.4vw + 0.4vh + .4vmin);
     font-family: 'Oswald', serif;
-    font-weight: 500;
-    letter-spacing: 0.07vw;
-    text-transform: uppercase;
+    font-weight: 600;
     width: 100%;
     padding: 2vw;
+    font-family: "Fondamento", cursive;
 }
 
 #storyOne {
@@ -603,6 +644,7 @@ body {
     text-align: center;
     padding: 0.5em 1em 1em 1em;
     font-size: calc(10px + 0.4vw + 0.4vh + .4vmin);
+    font-family: "Fondamento", cursive;
 }
 
 .bookDescription {
@@ -673,7 +715,8 @@ body {
 #contactBox h2, #contactBox p {
     text-align: center;
     margin: 10px 0 15px 0;
-    text-shadow: 1.1px 1.1px black;
+    text-shadow: 2px 2px 10px black;
+    font-family: "Fondamento", cursive;
 }
 
 #contactBox h2 {
@@ -759,6 +802,7 @@ input[type=submit] {
     margin-left: auto;
     margin-top: 20px;
     padding: 0.5em;
+    cursor: pointer;
 }
 
 input[type=submit]:hover {
@@ -870,6 +914,10 @@ footer img:hover {
    .news {
        width: 95%;
     }
+
+    #page-number {
+        display: none;
+    }
     
    .bookDescription p {
     text-align: justify;
@@ -905,7 +953,11 @@ footer img:hover {
     .news {
         width: 95%;
         min-height: 90vh;
-     }
+    }
+
+    #page-number {
+        display: none;
+    }
 
     .bookDescription p {
         text-align: left;

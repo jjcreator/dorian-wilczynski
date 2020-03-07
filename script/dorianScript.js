@@ -16,16 +16,19 @@ let slideArray = Array.from(document.getElementsByClassName("slide"));
 let buttonsArray = Array.from(document.getElementsByClassName("buttons"));
 let topButtons = Array.from(document.getElementsByClassName("topButton"));
 
+buttonsArray.forEach((button)=> {
+    button.addEventListener("click", ()=> {
+        setSlide(buttonsArray.indexOf(button) + 1)
+    })
+});
+
 const displaySlide = () => {
     stopSlideshow();
     let currentSlide = slideArray[slidePosition];
     let currentButton = buttonsArray[slidePosition];
     buttonsArray.forEach((button)=> {
-        button.style.backgroundColor = "rgba(0,0,0,0.65)";
-        button.addEventListener("click", ()=> {
-            setSlide(buttonsArray.indexOf(button) + 1)
-        })
-    });
+        button.style.backgroundColor = "rgba(0,0,0,0.65)"
+        });
     for (let i=0; i<slideArray.length; i++) {
         if (currentSlide === slideArray[i] && currentButton === buttonsArray[i]) {
             currentSlide.style.opacity = 0;
@@ -128,7 +131,7 @@ const displayPage = (pageNumber) => {
     pagesArray[pageNumber - 1].style.display = "block";
     pagesArray[pageNumber - 1].style.opacity = 0;
     appear(pageNumber - 1, pagesArray );
-    document.getElementById("page-number").textContent = "STRONA " + pageNumber + "/" + pagesArray.length;
+    document.getElementById("page-number").textContent = "Strona " + pageNumber + " / " + pagesArray.length;
     if (pageNumber === 1) {
         leftArrow.style.opacity = "0.2";
         leftArrow.style.cursor = "default";
