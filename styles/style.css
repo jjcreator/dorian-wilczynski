@@ -20,7 +20,6 @@ html {
 body {
     background: var(--primary-color);
     color: var(--text-color);
-    box-sizing: border-box;
 }
 
 /*---------- Navigation ----------*/
@@ -54,19 +53,16 @@ body {
 
 #authorName {
     text-shadow: 1px 1px 2px black;
-    margin: 0 auto 0 0;
+    margin: 0 auto 0 10px;
     font-size: calc(1px + 0.8vw + 0.8vh + .6vmin);
     text-align: center;
     min-width: 20%;
-    font-family: 'Oswald', sans-serif;
     font-family: "Fondamento", cursive;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
     text-transform: none;
-    color: transparent;
 }
 
 #authorName a {
@@ -82,10 +78,8 @@ body {
     text-decoration: none;
     color: white;
     width: 10%;
-    font-family: 'Oswald', sans-serif;
     font-family: "Fondamento", cursive;
     font-size: calc(0.6vw + 0.6vh + .6vmin);
-    text-align: center;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -161,8 +155,6 @@ body {
 
 #showcase {
     background-color: rgba(0, 0, 0, 0.75);
-    padding: 0;
-    margin: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -199,7 +191,6 @@ body {
 .slide h1 {
     font-size: calc(8px + 1.3vw + 1.3vh + .6vmin);
     text-align: center;
-    font-family: 'Oswald', sans-serif;
     text-shadow: 1px 1px 2px black;
     z-index: 3;
     width: 100%;
@@ -213,13 +204,10 @@ body {
     text-shadow: 0px 0px 20px black;
     font-size: calc(10px + 0.4vw + 0.4vh + .4vmin);
     z-index: 3;
-    width: 50%;
+    width: 100%;
     position: absolute;
     top: 40%;
-    
     font-weight: 500;
-    font-family: "Oswald", cursive;
-    text-justify: auto;
     font-family: "Fondamento", cursive;
 }
 
@@ -231,7 +219,6 @@ body {
     z-index: 3;
     position: absolute;
     bottom: 10%;
-    font-family: "Fondamento", cursive;
 }
 
 .btn {
@@ -242,7 +229,6 @@ body {
     text-transform: lowercase;
     text-decoration: none;
     font-weight: lighter;
-    font-family: 'Oswald', sans-serif;
     transition: all ease 0.25s; 
     text-shadow: 1px 1px 10px black;
     border-bottom-right-radius: 2em;
@@ -294,40 +280,6 @@ body {
     background-color: rgba(0, 0, 0, 0.20);
     z-index: 2;
 }
-
-.prev, .next {
-    display: none;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    color: white;
-    font-weight: bold;
-    font-size: calc(1.1vw + 1.1vh + 1vmin);
-    padding: 0.5em;
-    margin-top: -1.25em;
-    border-radius: 0 3px 3px 0;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    -webkit-transition: 0.4s ease;
-    transition: 0.4s ease;
-    z-index: 20;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev {
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
 
 #buttonHolder {
     position: absolute;
@@ -558,7 +510,8 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    min-height: 65vh;
+    min-height: 60vh;
+    width: 100%;
 }
 
 #booklist {
@@ -662,7 +615,7 @@ body {
 }
 
 .bookDescription img {
-    width: 30%;
+    width: 25%;
     float: left;
     margin: 0.5vh 0.8vw 0 0;
 }
@@ -1076,7 +1029,6 @@ footer img:hover {
         align-items: center;
         flex-direction: column;
         min-height: 55vh;
-        
     }
 
     .framebox iframe {
@@ -1085,6 +1037,7 @@ footer img:hover {
 
     .bookDescription img {
         width: 20%;
+        margin-right: 10px;
     }
 
     #contactBox form {
@@ -1143,6 +1096,10 @@ footer img:hover {
 
     input[type=submit] {
         min-width: 25%;
+    }
+    .bookDescription img {
+        width: 16%;
+        margin-right: 10px;
     }
 }
 

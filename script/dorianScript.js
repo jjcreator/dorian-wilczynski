@@ -66,8 +66,6 @@ const setSlide = x => {
     displaySlide();
 }
 
-document.querySelector(".next").addEventListener("click", nextSlide);
-document.querySelector(".prev").addEventListener("click", prevSlide);
 
 topButtons.forEach((button) => {
     button.addEventListener("mouseover", stopSlideshow);
