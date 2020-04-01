@@ -53,7 +53,7 @@ body {
 
 #authorName {
     text-shadow: 1px 1px 2px black;
-    margin: 0 auto 0 10px;
+    margin: 0 auto 0 15px;
     font-size: calc(1px + 0.8vw + 0.8vh + .6vmin);
     text-align: center;
     min-width: 20%;
@@ -972,8 +972,7 @@ footer img:hover {
     }
 
     #authorName {
-        display: flex;
-        width: 30%;
+        
     }
     .news {
         width: 95%;

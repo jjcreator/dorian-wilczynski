@@ -1,5 +1,13 @@
-// Appear effect for displaying slides / books / news pages //
+// Preload images
 
+let images = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/gamebook.jpg", "../images/book1.jpg"];
+
+images.forEach(imageUrl => {
+    let img = new Image();
+    img.src = imageUrl;
+});
+
+// Appear effect for displaying slides / books / news pages //
 const appear = (x, arr) => {
     let grabbed = arr[x];
     grabbed.style.opacity = (parseFloat(grabbed.style.opacity) + 0.015);
