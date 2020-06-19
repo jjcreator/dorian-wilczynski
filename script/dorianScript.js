@@ -1,3 +1,13 @@
+const mainWrapper = document.getElementById("mainWrapper");
+const preloader = document.getElementById("preloader");
+
+mainWrapper.style.display = "none";
+
+window.onload = () => {
+    mainWrapper.style.display = "block";
+    preloader.style.display = "none";
+}
+
 // Preload images
 
 let images = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/gamebook.jpg", "../images/book1.jpg"];
@@ -6,6 +16,8 @@ images.forEach(imageUrl => {
     let img = new Image();
     img.src = imageUrl;
 });
+
+
 
 // Appear effect for displaying slides / books / news pages //
 const appear = (x, arr) => {
