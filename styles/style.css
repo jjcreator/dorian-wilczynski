@@ -3,13 +3,15 @@
 :root {
     --primary-color: rgb(54, 64, 65);
     --secondary-color: rgb(83, 97, 98);
+    --tertiary-color: rgb(32, 164, 243);
     --transparent-primary: rgba(54, 64, 65, 0.5);
-    --text-color: white;
+    --text-color: rgb(255, 255, 255);
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -18,8 +20,9 @@ html {
 }
 
 body {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
+    
 }
 
 /*----------Preloader-------------*/ /* Downloaded from https://loading.io/css/ */
@@ -36,7 +39,10 @@ body {
 
 #preloader h2 {
     position: absolute;
-    top: 80%;
+    top: 60%;
+    font-family: Baskervville;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .lds-default {
@@ -124,19 +130,13 @@ body {
   
 /*---------- Navigation ----------*/
 
-#header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
 #navbar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
-            justify-content: center;
+            justify-content: flex-start;
     position: fixed;
     top: 0;
     left: 0;
@@ -151,55 +151,46 @@ body {
     transition: 0.35s;
 }
 
-#authorName {
+#logo {
     text-shadow: 1px 1px 2px black;
-    margin: 0 auto 0 15px;
-    font-size: calc(1px + 0.8vw + 0.8vh + .6vmin);
-    text-align: center;
-    min-width: 20%;
-    font-family: "Fondamento", cursive;
-    height: 100%;
+    font-size: calc(2px + 0.8vw + 0.8vh + .6vmin);
+    text-decoration: none;
+    font-family: "Fondamento";
+    color: rgb(255, 255, 255);
+    margin-left: 100px;
+}
+
+.navLinks {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-transform: none;
-}
-
-#authorName a {
-    text-decoration: none;
-    color: white;
-}
-
-#authorName:hover {
-    background-color: transparent;
+    height: 100%;
+    padding: 0 20px;
+    margin-left: 25vw;
+    flex: 1;
 }
 
 .navItem {
     text-decoration: none;
-    color: white;
-    width: 10%;
-    font-family: "Fondamento", cursive;
+    color: var(--text-color);
+    font-family: "Fondamento";
     font-size: calc(0.6vw + 0.6vh + .6vmin);
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom-right-radius: 2em;
-    border-top-left-radius: 2em;
-    text-transform: lowercase;
-}
-
-.navItem:nth-child(5) {
-    margin-right: 5vw;
+    border-radius: 2em;
+    text-shadow: 1px 1px 2px black;
+    width: 25%;
 }
 
 .navItem:hover {
-    background-color: rgba(255, 255, 255, 0.596);
-    color: black;
+    background-color: var(--tertiary-color);
 }
 
 #mobile {
-    background-color: black;
+    background-color: var(--tertiary-color);
+    background: linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 40%, rgba(61,61,61,1) 100%);
     display: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -220,11 +211,11 @@ body {
 .navItemMobile {
     text-decoration: none;
     color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: calc(0.7vw + 0.7vh + .7vmin);
+    font-size: calc(0.8vw + 0.8vh + .8vmin);
     padding: 1em;
     text-align: center;
-    text-transform: lowercase;
+    font-family: Fondamento;
+    text-shadow: 1px 1px 4px black;
 }
 
 #hamburgerMenu {
@@ -235,6 +226,7 @@ body {
     margin-left: auto;
     margin-right: 2vh;
     cursor: pointer;
+    
 }
 
 #hamburgerMenu img:hover {
@@ -247,7 +239,7 @@ body {
 }
 
 #mobile a:hover {
-    background-color: var(--secondary-color);
+    background-color: rgb(5, 102, 141);
 }
 
 
@@ -290,39 +282,42 @@ body {
 
 .slide h1 {
     font-size: calc(8px + 1.3vw + 1.3vh + .6vmin);
-    text-align: center;
     text-shadow: 1px 1px 2px black;
     z-index: 3;
-    width: 100%;
-    position: absolute;
-    top: 25%;
     font-family: "Fondamento", cursive;
+    height: 8vh;   
+}
+
+.slide h1:hover {
+   background-color: none;
 }
 
 .slide h3 {
     text-align: center;
     text-shadow: 0px 0px 20px black;
-    font-size: calc(10px + 0.4vw + 0.4vh + .4vmin);
+    font-size: calc(5px + 0.4vw + 0.4vh + .4vmin);
     z-index: 3;
     width: 100%;
-    position: absolute;
-    top: 40%;
     font-weight: 500;
+    height: 8vh;
+    padding: 10px;
     font-family: "Fondamento", cursive;
+    margin-bottom: 20vh;
 }
 
 .topButton {
     font-size: calc(12px + 0.3vw + 0.3vh + .3vmin);
-    width: 12%;
+    width: 15%;
+    height: 8vh;
     min-width: fit-content;
-    padding: calc(6px + 0.3vw + 0.3vh + .5vmin); 
     z-index: 3;
     position: absolute;
-    bottom: 10%;
+    bottom: 10vh;
+    box-shadow: 0px 0px 5px black;
 }
 
 .btn {
-    background-color: rgba(5, 102, 141, 0.478);
+    background-color: transparent;
     text-align: center;
     color: white;
     border: 2px white solid;
@@ -331,35 +326,30 @@ body {
     font-weight: lighter;
     transition: all ease 0.25s; 
     text-shadow: 1px 1px 10px black;
-    border-bottom-right-radius: 2em;
-    border-top-left-radius: 2em;
-    font-family: "Fondamento", cursive
+    font-family: "Fondamento", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em 0;
 }
 
 .btn:hover {
     -webkit-transition: ease 0.15s;
     transition: all ease 0.25s; 
     text-shadow: 3px 3px 10px black;
-    background-color: rgb(5, 102, 141)
+    background-color: rgb(5, 102, 141);
 }
 
 #audiobook {
     background: url(../images/tree.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
 }
 
 #textbook {
     background: url(../images/skycastle.jpg);
     background-size: cover;
-    background-position: 50% 75%;
     background-position: 50% 35%;
-}
-
-#gamebook {
-    background: url(../images/gamebook.jpg);
-    background-size: cover;
-    background-position: 50% 65%;
 }
 
 #stories {
@@ -368,6 +358,7 @@ body {
     background-size: cover;
     background-position: 50% 35%;
     background-position: 50% 75%; 
+    mix-blend-mode: lighten;
 }
 
 #audiobook::before, #textbook::before, #stories::before {
@@ -377,28 +368,27 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.20);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
 
 #buttonHolder {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 42.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 15%;
-    background-color: var(--transparent-primary);
-    height: 5%;
+    height: 8vh;
     border-top-right-radius: 2em;
-    padding-right: 1em;
+    border-top-left-radius: 2em;
 }
 
 .buttons {
     cursor: pointer;
-    height: 0.6vw;
-    width: 0.6vw;
+    height: calc(5px + 0.3vw + 0.3vh + .4vmin);
+    width: calc(5px + 0.3vw + 0.3vh + .4vmin);
     display: inline-block;
     background-color: rgba(0,0,0,0.65);
     padding: 3px;
@@ -417,28 +407,7 @@ body {
     background-color: rgba(0,0,0,0.65);
 }
 
-#social-media-container {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 25;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-width: 10%;
-    min-height: 10%;
-}
 
-.socialMediaTop {
-    width: 3vw;
-    min-width: 25px;
-    opacity: 80%;
-    display: block;
-}
-
-.socialMediaTop:hover {
-    opacity: 1;
-}
 
 /* ---------News section--------- */
 
@@ -501,6 +470,7 @@ body {
     text-align: center;
     margin-top: 5px;
     font-size: calc(5px + 0.4vw + 0.4vh + .3vmin);
+    font-family: Oswald;
 }
 
 .arrows {
@@ -520,7 +490,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .arrow img {
     width: 70%;
@@ -580,7 +549,7 @@ body {
 /* -------- Books section -------- */
 
 #books {
-    padding-bottom: 25vh;
+    padding-bottom: 15vh;
     padding-top: 2vh;
     display: flex;
     flex-direction: column;
@@ -755,71 +724,67 @@ body {
 #contact {
     width: 100%;
     height: 85vh;
-    margin: 0 auto;
     background-image: url(../images/whitepapers.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-top: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #contactBox {
-    padding: 1vh;
-    padding-bottom: 1vh;
-    margin: 1vh;
-    margin-top: 1vh;
-    font-size: calc(1vw + 1vh + .5vmin);
-    line-height: 2.8vh;
     display: flex;
     flex-direction: column;
-}
-
-#contactBox h2, #contactBox p {
-    text-align: center;
-    margin: 10px 0 15px 0;
-    text-shadow: 2px 2px 10px black;
-    font-family: "Fondamento", cursive;
-    font-weight: lighter;
+    height: 65%;
+    width: 40%;
+    margin: 0 auto;
 }
 
 #contactBox h2 {
-    font-size: calc(10px + 1vw + 1vh + .5vmin);
-}
-
-#contactBox p {
-    font-size: calc(10px + 0.3vw + 0.3vh + .3vmin);
+    font-family: "Fondamento", cursive;
+    font-weight: lighter;
+    font-size: calc(10px + 0.7vw + 0.7vh + .7vmin);
+    height: 20%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 10px black;
 }
 
 #contactBox form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: column;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    width: 60%;
+    width: 100%;
+    height: 70%;
     margin: 0 auto;
-    padding: calc(0.5vw + 0.5vh + .5vmin);
-    -webkit-box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
-            box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
+    padding: calc(0.7vw + 0.7vh + .7vmin);
     background-color: var(--primary-color);
     text-align: left;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    max-height: -webkit-fit-content;
-    max-height: -moz-fit-content;
-    max-height: fit-content;
     font-family: 'Baskervville', serif;
+    align-items: center;
+    flex: 1;
+    -webkit-box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
+            box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
+    border-radius: 2em;
+}
+
+.formRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .name, .mail {
-    -ms-flex-preferred-size: 47%;
-        flex-basis: 47%;
+    width: 48%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -832,12 +797,10 @@ body {
 .name input, .mail input {
     font-family: Georgia, 'Times New Roman', Times, serif, serif;
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
-    padding: 0.2em 0;  
+    padding: 0.5em;  
 }
 
 .rest {
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -846,12 +809,17 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
     margin-top: 0.8em;
+    height: 50%;
+    width: 100%;
+    flex: 1;
 }
 
 .rest textarea {
     font-family: Georgia, 'Times New Roman', Times, serif, serif;
     resize: none;
-    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin)
+    font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
+    height: 100%;
+    padding: 0.5em; 
 }
 
 .name label, .mail label, .rest label {
@@ -860,13 +828,13 @@ body {
 }
 
 input[type=submit] {
-    min-width: 15%;
+    min-width: 30%;
     font-size: calc(10px + 0.25vw + 0.25vh + .25vmin);
     text-align: center;
-    margin-left: auto;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     padding: 0.5em;
     cursor: pointer;
+    border-radius: 2em;
 }
 
 input[type=submit]:hover {
@@ -956,19 +924,27 @@ footer img:hover {
 
 @media only screen and (max-width: 480px) {
     #buttonHolder {
-        width: 30%;
+        width: 50%;
+        left: 25%;
     }
 
-    #social-media-container {
-        width: 20%;
+    .buttons {
+        width: 16px;
+        height: 16px;
+        margin: 0 10px;
+    }
+
+    .topButton {
+        width: 35%;
     }
 
     .navItem {
         display: none;
     }
 
-    #authorName {
+    #logo {
         width: 40%;
+        margin-left: 20px;
     }
 
     .publishDate {
@@ -988,6 +964,10 @@ footer img:hover {
 
     #page-number {
         display: none;
+    }
+
+    #books {
+        padding-bottom: 5vh;
     }
     
    .bookDescription p {
@@ -1049,12 +1029,16 @@ footer img:hover {
         margin: 0 10px 0 0;
     }
 
+    #contactBox {
+        width: 85%;
+    }
+
     #contactBox form {
-            width: 85%;
+        padding: 15px;
     }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
   
     .publishDate {
         display: block;
@@ -1071,9 +1055,6 @@ footer img:hover {
         display: none;
     }
 
-    #authorName {
-        
-    }
     .news {
         width: 95%;
         min-height: 90vh;
@@ -1139,7 +1120,7 @@ footer img:hover {
         margin-right: 10px;
     }
 
-    #contactBox form {
+    #contactBox {
         width: 75%;
     }
     input[type=submit] {
@@ -1175,6 +1156,16 @@ footer img:hover {
         flex-wrap: wrap;
     }
 
+    .navLinks {
+        width: 30%;
+        margin-left: auto;
+        justify-content: flex-end;
+    }
+
+    .navItem {
+        width: 25%;
+    }
+
     .bookItem {
         flex-basis: 33.3%;
     }
@@ -1186,7 +1177,6 @@ footer img:hover {
         align-items: center;
         flex-direction: column;
         min-height: 55vh;
-        
     }
 
     .framebox iframe {
@@ -1200,6 +1190,10 @@ footer img:hover {
         width: 16%;
         margin-right: 10px;
     }
+    #contactBox {
+        width: 60%;
+        height: 50%;
+    }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1599px) {
@@ -1209,11 +1203,32 @@ footer img:hover {
     }
     .news {
         width: 80%;
-     }
+    }
 }
 
 @media only screen and (min-width: 1600px) {
     #mobile {
         display: none;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .topButton {
+        width: 20%;
+        height: 12vh;
+    }
+
+    #contact {
+        height: 100vh;
+    }
+
+    #contactBox {
+        height: 90%;
+        width: 60%;
+    }
+
+    #contactBox form {
+        height: 100%;
+        padding: 15px;
     }
 }

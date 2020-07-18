@@ -1,3 +1,5 @@
+// Preloader
+
 const mainWrapper = document.getElementById("mainWrapper");
 const preloader = document.getElementById("preloader");
 
@@ -17,9 +19,8 @@ images.forEach(imageUrl => {
     img.src = imageUrl;
 });
 
-
-
 // Appear effect for displaying slides / books / news pages //
+
 const appear = (x, arr) => {
     let grabbed = arr[x];
     grabbed.style.opacity = (parseFloat(grabbed.style.opacity) + 0.015);
@@ -53,7 +54,7 @@ const displaySlide = () => {
         if (currentSlide === slideArray[i] && currentButton === buttonsArray[i]) {
             currentSlide.style.opacity = 0;
             currentSlide.style.display = "flex";
-            currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.73)";
+            currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
             appear(slideArray.indexOf(currentSlide), slideArray);
         }      
         else slideArray[i].style.display = "none";
@@ -86,7 +87,6 @@ const setSlide = x => {
     displaySlide();
 }
 
-
 topButtons.forEach((button) => {
     button.addEventListener("mouseover", stopSlideshow);
     button.addEventListener("mouseout", startSlideshow);
@@ -96,7 +96,7 @@ topButtons.forEach((button) => {
     if (topButtons.indexOf(button) == 1) button.addEventListener("click", ()=> {
         displayBook(4);
     });
-    if (topButtons.indexOf(button) == 3) button.addEventListener("click", ()=> {
+    if (topButtons.indexOf(button) == 2) button.addEventListener("click", ()=> {
         displayBook(3);
     });
 });
@@ -183,7 +183,8 @@ arrows();
 // Navbar animations //
 
 let navbar = document.getElementById("navbar");
-let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 50%, rgba(121,108,108,1) 100%)";
+let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 40%, rgba(61,61,61,1) 100%)";
+let navItem = document.querySelectorAll(".navItem")
 let hamburgerMenu = document.getElementById("hamburgerMenu");
 
 const navbarControl = () => {
@@ -193,12 +194,13 @@ const navbarControl = () => {
         navbar.style.background = myGradient ;
         navbar.style.height = "7vh";
         navbar.style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
+        navItem.forEach(item => item.style.borderRadius = "0")
         mobileNavbar.style.top = "7vh";
     }
     else {
         navbar.style.height = "8vh";
         navbar.style.boxShadow = "none"; 
-
+        navItem.forEach(item => item.style.borderRadius = "2em 0em")
         if (mobileNavbar.style.display != "flex") {
             navbar.style.background = "none";
         }
