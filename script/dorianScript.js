@@ -241,6 +241,10 @@ addEventListener("resize", ()=> {
 
 let bookArray = Array.from(document.getElementsByClassName("bookcaseBody"));
 let bookItems = Array.from(document.getElementsByClassName("bookItem"));
+let bookPrev = document.getElementById("bookPrev");
+let bookNext = document.getElementById("bookNext");
+let mobileBooklist = document.querySelector(".mobileBooklist");
+let currentBook = 0;
 
 const displayBook = x => {
     bookArray.forEach((bookDescription)=> {
@@ -248,10 +252,25 @@ const displayBook = x => {
     })
     bookArray[x].style.display = "flex";
     bookArray[x].style.opacity = 0;
-    appear(bookArray.indexOf(bookArray[x]), bookArray);
+    currentBook = bookArray.indexOf(bookArray[x])
+    appear(currentBook, bookArray);
+    mobileBooklist.innerText = bookItems[currentBook].innerText;
 }
+
 bookItems.forEach((item)=> {
     item.addEventListener("click", () => {
         displayBook(bookItems.indexOf(item))
     })
 });
+
+mobileBooklist.innerText = bookItems[currentBook].innerText;
+
+bookPrev.addEventListener("click", ()=> {
+    currentBook === 0 ? displayBook(5) : displayBook(currentBook - 1);
+    mobileBooklist.innerText = bookItems[currentBook].innerText;
+})
+
+bookNext.addEventListener("click", ()=> {
+    currentBook === (bookArray.length -1) ? displayBook(0) : displayBook(currentBook + 1);
+    mobileBooklist.innerText = bookItems[currentBook].innerText;
+})

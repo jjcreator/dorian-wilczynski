@@ -600,13 +600,17 @@ body {
     color: black;
 }
 
+#booklist img {
+    width: 30px;
+    display: none;
+}
+
 .bookItem:nth-child(even) {
     background-color: var(--transparent-primary);
 }
 
-.bookItem {
+.bookItem, .mobileBooklist {
     text-decoration: none;
-    color: white;
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%;    
     text-align: center;
@@ -622,26 +626,21 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    opacity: 1;
-    color: white;
-    font-weight: lighter;
-    
+    font-weight: 500;
+    padding: 0 20px;
+    color: var(--text-color);
+    font-family: "Fondamento", cursive;
+    font-size: calc(6px + 0.4vw + 0.4vh + .4vmin);
 }
 
 .bookItem:hover {
     background-color: black;
 }
 
-.bookItem p {
-    text-align: center;
-    display: inline-block;
-    font-size: calc(6px + 0.4vw + 0.4vh + .4vmin);
-    font-family: 'Oswald', serif;
-    font-weight: 500;
-    width: 100%;
-    padding: 2vw;
-    font-family: "Fondamento", cursive;
+.mobileBooklist {
+    display: none;
 }
+
 
 #storyOne {
     display: -webkit-box;
@@ -1012,22 +1011,6 @@ footer img:hover {
         min-height: 55vh;
     }
 
-    .bookItem:nth-child(even) {
-        background: none;
-    }
-
-    .bookItem:nth-child(even):hover {
-        background-color: black;
-    }
-
-    .bookItem:nth-child(1), .bookItem:nth-child(4), .bookItem:nth-child(5) {
-        background: var(--transparent-primary);
-    }
-
-    .bookItem:nth-child(1):hover, .bookItem:nth-child(4):hover, .bookItem:nth-child(5):hover {
-        background-color: black;
-    }
-
     .bookDescription img {
         margin: 0 10px 0 0;
     }
@@ -1041,7 +1024,7 @@ footer img:hover {
     }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 767px) {
+@media only screen and (max-width: 766px) {
   
     .publishDate {
         display: block;
@@ -1080,29 +1063,25 @@ footer img:hover {
     #booklist {
         border-right: none;
         flex-direction: row;
-        flex-wrap: wrap;
         border-bottom: 2px solid white;
     }
 
+    .mobileBooklist {
+        font-size: calc(15px + 0.4vw + 0.4vh + .4vmin);
+        flex: 1;
+        display: flex;
+        background-color: var(--secondary-color);
+        height: 8vh;
+    }
+
     .bookItem {
-        box-sizing: border-box;
-        flex-basis: 50%;
+        display: none;
     }
 
-    .bookItem:nth-child(even) {
-        background: none;
-    }
-
-    .bookItem:nth-child(even):hover {
-        background-color: black;
-    }
-
-    .bookItem:nth-child(1), .bookItem:nth-child(4), .bookItem:nth-child(5) {
-        background: var(--transparent-primary);
-    }
-
-    .bookItem:nth-child(1):hover, .bookItem:nth-child(4):hover, .bookItem:nth-child(5):hover {
-        background-color: black;
+    #booklist img {
+        display: block;
+        cursor: pointer;
+        margin: 0 20px;
     }
 
     .framebox {
@@ -1116,6 +1095,10 @@ footer img:hover {
 
     .framebox iframe {
         flex: 1;
+    }
+
+    .bookcaseBody h3 {
+        display: none;
     }
 
     .bookDescription img {
@@ -1161,6 +1144,7 @@ footer img:hover {
 
     .bookItem {
         flex-basis: 33.3%;
+        padding: 20px;
     }
 
     .framebox {
