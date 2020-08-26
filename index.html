@@ -16,19 +16,21 @@
         <h2>Trwa ładowanie strony...</h2>
         <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
     <div id="mainWrapper">
-        <nav id="navbar">
-            <a href="#showcase" id="logo">Dorian Wilczyński</a>
-            <div class="navLinks">
-                <a href="#news" class="navItem">nowości</a>
-                <a href="#books" class="navItem">twórczość</a>
-                <a href="#contact" class="navItem">kontakt</a>
+        <div class="navWrapper">
+            <nav id="navbar">
+                <a href="#showcase" id="logo">Dorian Wilczyński</a>
+                <div class="navLinks">
+                    <a href="#news" class="navItem">nowości</a>
+                    <a href="#books" class="navItem">twórczość</a>
+                    <a href="#contact" class="navItem">kontakt</a>
+                </div>
+                <img src="./images/menuicon.png" id="hamburgerMenu" alt="menu">      
+            </nav>
+            <div id="mobile">
+                <a href="#news" class="navItemMobile"><p>nowości</p></a>
+                <a href="#books" class="navItemMobile"><p>twórczość</p></a>
+                <a href="#contact" class="navItemMobile"><p>kontakt</p></a>
             </div>
-            <img src="./images/menuicon.png" id="hamburgerMenu" alt="menu">      
-        </nav>
-        <div id="mobile">
-            <a href="#news" class="navItemMobile"><p>nowości</p></a>
-            <a href="#books" class="navItemMobile"><p>twórczość</p></a>
-            <a href="#contact" class="navItemMobile"><p>kontakt</p></a>
         </div>
     <main>
         <section id="showcase">
@@ -157,16 +159,16 @@
                     <div class="formRow">
                         <div class="name">
                             <label for="name">Imię i nazwisko</label>
-                            <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required pattern="\p{L}+\s\p{L}+">
+                            <input type="text" id="name" name="name" placeholder="" required pattern="\p{L}+\s\p{L}+">
                         </div>
                         <div class="mail">
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" placeholder="Twój adres email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                            <input type="text" id="email" name="email" placeholder="" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                         </div>
                     </div>
                     <div class="rest">
                         <label for="emailText" id="textLabel">Twoja wiadomość</label>
-                        <textarea id="emailText" name="emailText" placeholder="Wpisz swoją wiadomość" required></textarea>
+                        <textarea id="emailText" name="emailText" placeholder="" required></textarea>
                     </div>
                     <input type="submit" class="btn" value="Wyślij">
                 </form>

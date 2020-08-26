@@ -192,21 +192,14 @@ const navbarControl = () => {
     if (0 < currentScrollPos) {
         navbar.style.backgroundColor = "rgb(121, 108, 108)";
         navbar.style.background = myGradient ;
-        navbar.style.height = "7vh";
+        navbar.style.height = "8vh";
         navbar.style.boxShadow = "-1px 4px 23px rgba(0, 0, 0, 0.75)";
-        navItem.forEach(item => item.style.borderRadius = "0")
-        mobileNavbar.style.top = "7vh";
     }
     else {
-        navbar.style.height = "8vh";
+        navbar.style.height = "9vh";
         navbar.style.boxShadow = "none"; 
-        navItem.forEach(item => item.style.borderRadius = "2em 0em")
         if (mobileNavbar.style.display != "flex") {
             navbar.style.background = "none";
-        }
-        else {
-            mobileNavbar.style.top = "8vh";
-
         }
     }
 }
