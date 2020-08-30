@@ -465,7 +465,6 @@ body {
     align-items: center;
     width: 30%;
     min-width: 50px;
-    margin-right: 1em;
 }
 
 #page-number {
@@ -500,9 +499,8 @@ body {
 .newsbox {
     background-color: var(--secondary-color);
     color: white;
-    padding: 0;
-    padding-bottom: 1em;
-    margin: 1em;
+    padding: 0 0 1em 0;
+    margin-bottom: 1em;
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
     line-height: 1.6em;
     -webkit-box-shadow: 6px 5px 11px 1px rgba(0,0,0,0.4);
@@ -522,6 +520,10 @@ body {
     padding: 1em 1.5em;
     font-size: calc(10px + 0.2vw + 0.2vh + .2vmin);
     float: right;
+}
+
+.page {
+    width: 100%;
 }
 
 .newsbox .newsText {
