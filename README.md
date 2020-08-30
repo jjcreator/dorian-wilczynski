@@ -15,7 +15,10 @@ This project was made entirely from scratch, without any external libraries. The
 ### Main features
 * custom fullpage carousel as the "hero section"
 * news sorting system - displays news in sets of 3 per page, regardless of the actual number. Of course there is no CMS so adding content is only available via hardcoding it in HTML
-*
+* projects section in the form of one block, split into two parts - titles list and project view
+* contact form with HTML validation, handled by simple PHP code (found online & adapted - I don't know much about PHP)
+* fluid typography - font sizes based on viewport height & width
+* responsive
 
 ## Launch
 
