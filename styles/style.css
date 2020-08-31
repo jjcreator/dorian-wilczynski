@@ -756,7 +756,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* text-shadow: 2px 2px 10px black; */
 }
 
 #contactBox form {
@@ -1111,6 +1110,12 @@ footer img:hover {
     #contactBox {
         width: 75%;
     }
+
+    #contactBox h2 {
+        padding: 10px;
+        height: 10%;
+    }
+
     input[type=submit] {
         min-width: 25%;
     }
