@@ -26,3 +26,7 @@ This project was made entirely from scratch (except for the preloader, downloade
 
 Domain registered through OVH.com, hosted for free on the same site, taking advantage of their free hosting plan for <10MBs projects. Deployed as https://www.dorianwilczynski.pl
 
+## Sources
+
+Images from pexels.com, pixabay.com, preloader from https://loading.io/css
+
