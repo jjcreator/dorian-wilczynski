@@ -2,7 +2,7 @@
 
 My first serious project - a portfolio site for an fantasy author. Simple, vanilla design. It features a custom news sorting and a working PHP contact form. As this was my first project, every part of it was somewhat of a challenge, but at the same time, a great learning opportunity.
 
-![dorianwilczynski.pl](/dorian.png)
+[[[/dorian.png]]](https://www.dorianwilczynski.pl)
 
 ## Technologies
 
