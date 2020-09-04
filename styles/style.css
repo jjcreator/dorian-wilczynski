@@ -900,14 +900,14 @@ footer img:hover {
             align-items: center;
 }
 
-.linkbox a {
+.linkbox a, .copyright a {
     display: block;
     text-decoration: none;
     color: white;
     margin: 0 0.5em
 }
 
-.linkbox a:hover {
+.footerStrip a:hover {
     text-decoration: underline;
 }
 
@@ -922,6 +922,10 @@ footer img:hover {
     width: 100%;
     text-align: center;
     margin: 0 auto;
+}
+
+.copyright a {
+    display: inline-block;
 }
 
 /* -------Media queries-------- */
