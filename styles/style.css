@@ -158,11 +158,12 @@ body {
 
 #logo {
     text-shadow: 1px 1px 2px black;
-    font-size: calc(10px + 0.5vw + 0.5vh + 0.5vmin);
+    font-size: calc(0.6vw + 0.6vh + .6vmin);
     text-decoration: none;
     font-family: "Fondamento";
     color: rgb(255, 255, 255);
     margin-left: 5vw;
+    text-transform: lowercase;
 }
 
 .navLinks {
@@ -1030,6 +1031,10 @@ footer img:hover {
 }
 
 @media only screen and (max-width: 766px) {
+
+    #logo {
+        font-size: calc(1vw + 1vh + 1vmin);
+    }
   
     .publishDate {
         display: block;
