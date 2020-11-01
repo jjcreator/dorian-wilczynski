@@ -1,15 +1,3 @@
-Preloader
-
-const mainWrapper = document.getElementById("mainWrapper");
-const preloader = document.getElementById("preloader");
-
-mainWrapper.style.display = "none";
-
-window.onload = () => {
-    mainWrapper.style.display = "block";
-    preloader.style.display = "none";
-}
-
 // Preload images
 
 let images = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/book1.jpg"];
@@ -18,6 +6,16 @@ images.forEach(imageUrl => {
     let img = new Image();
     img.src = imageUrl;
 });
+
+// Preloader
+
+const mainWrapper = document.getElementById("mainWrapper");
+const preloader = document.getElementById("preloader");
+
+window.onload = () => {
+    mainWrapper.style.display = "block";
+    preloader.style.display = "none";
+}
 
 // Appear effect for displaying slides / books / news pages //
 
