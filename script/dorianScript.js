@@ -1,4 +1,4 @@
-// Preloader
+Preloader
 
 const mainWrapper = document.getElementById("mainWrapper");
 const preloader = document.getElementById("preloader");
@@ -12,7 +12,7 @@ window.onload = () => {
 
 // Preload images
 
-let images = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/gamebook.jpg", "../images/book1.jpg"];
+let images = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/book1.jpg"];
 
 images.forEach(imageUrl => {
     let img = new Image();
