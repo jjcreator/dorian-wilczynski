@@ -246,6 +246,10 @@ body {
 
 /*----------- Main page -----------*/
 
+#mainWrapper {
+    display: none;
+}
+
 #showcase {
     background-color: rgba(0, 0, 0, 0.75);
     display: -webkit-box;

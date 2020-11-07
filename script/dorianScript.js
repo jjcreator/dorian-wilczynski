@@ -1,8 +1,8 @@
 // Preload images
 
-let images = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/book1.jpg"];
+let IMAGES = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/book1.jpg"];
 
-images.forEach(imageUrl => {
+IMAGES.forEach(imageUrl => {
     let img = new Image();
     img.src = imageUrl;
 });
@@ -15,6 +15,7 @@ const preloader = document.getElementById("preloader");
 window.onload = () => {
     mainWrapper.style.display = "block";
     preloader.style.display = "none";
+    setSlide(1);
 }
 
 // Appear effect for displaying slides / books / news pages //
@@ -34,31 +35,6 @@ let slidePosition = 0;
 let slideArray = Array.from(document.getElementsByClassName("slide"));
 let buttonsArray = Array.from(document.getElementsByClassName("buttons"));
 let topButtons = Array.from(document.getElementsByClassName("topButton"));
-
-buttonsArray.forEach((button)=> {
-    button.addEventListener("click", ()=> {
-        setSlide(buttonsArray.indexOf(button) + 1)
-    })
-});
-
-const displaySlide = () => {
-    stopSlideshow();
-    let currentSlide = slideArray[slidePosition];
-    let currentButton = buttonsArray[slidePosition];
-    buttonsArray.forEach((button)=> {
-        button.style.backgroundColor = "rgba(0,0,0,0.65)"
-        });
-    for (let i=0; i<slideArray.length; i++) {
-        if (currentSlide === slideArray[i] && currentButton === buttonsArray[i]) {
-            currentSlide.style.opacity = 0;
-            currentSlide.style.display = "flex";
-            currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
-            appear(slideArray.indexOf(currentSlide), slideArray);
-        }      
-        else slideArray[i].style.display = "none";
-    }
-    startSlideshow();
-}
 
 const nextSlide = () => {
     if (slidePosition < slideArray.length - 1) slidePosition +=1;
@@ -85,21 +61,45 @@ const setSlide = x => {
     displaySlide();
 }
 
-topButtons.forEach((button) => {
+buttonsArray.forEach((button, index)=> {
+    button.addEventListener("click", ()=> {
+        setSlide(index + 1)
+    })
+});
+
+const displaySlide = () => {
+    stopSlideshow();
+    let currentSlide = slideArray[slidePosition];
+    let currentButton = buttonsArray[slidePosition];
+    buttonsArray.forEach((button)=> {
+        button.style.backgroundColor = "rgba(0,0,0,0.65)"
+        });
+    slideArray.forEach((slide, index) => {
+        if (currentSlide === slide && currentButton === buttonsArray[index]) {
+            currentSlide.style.opacity = 0;
+            currentSlide.style.display = "flex";
+            currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+            appear(index, slideArray);
+        }      
+        else slide.style.display = "none";
+    })
+    startSlideshow();
+}
+
+topButtons.forEach((button, index) => {
     button.addEventListener("mouseover", stopSlideshow);
     button.addEventListener("mouseout", startSlideshow);
-    if (topButtons.indexOf(button) == 0) button.addEventListener("click", ()=> {
+    if (index == 0) button.addEventListener("click", ()=> {
         displayBook(0);
     });
-    if (topButtons.indexOf(button) == 1) button.addEventListener("click", ()=> {
+    if (index == 1) button.addEventListener("click", ()=> {
         displayBook(4);
     });
-    if (topButtons.indexOf(button) == 2) button.addEventListener("click", ()=> {
+    if (index == 2) button.addEventListener("click", ()=> {
         displayBook(3);
     });
 });
 
-setSlide(1);
 
 // News archive //
 
@@ -135,7 +135,7 @@ const archiveNews = () => {
     }
 }
 
-const displayPage = (pageNumber) => {
+const displayPage = pageNumber => {
     rightArrow.style.opacity = "1";
     leftArrow.style.opacity = "1";
     rightArrow.style.cursor = "pointer";
@@ -147,7 +147,7 @@ const displayPage = (pageNumber) => {
     pagesArray[pageNumber - 1].style.display = "block";
     pagesArray[pageNumber - 1].style.opacity = 0;
     appear(pageNumber - 1, pagesArray );
-    document.getElementById("page-number").textContent = "Strona " + pageNumber + " / " + pagesArray.length;
+    document.getElementById("page-number").textContent = `Strona ${pageNumber} / ${pagesArray.length}`;
     if (pageNumber === 1) {
         leftArrow.style.opacity = "0.2";
         leftArrow.style.cursor = "default";
