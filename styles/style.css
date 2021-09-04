@@ -15,14 +15,13 @@
 }
 
 html {
-    font-family: 'Baskervville', serif;
+    font-family: 'Baskervville', serif ;
     scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--primary-color);
     color: var(--text-color);
-    
 }
 
 /*----------Preloader-------------*/ /* Downloaded from https://loading.io/css/ */
@@ -149,8 +148,8 @@ body {
     height: 9vh;
     min-height: 40px;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-transition: 0.35s;
     transition: 0.35s;
     overflow: hidden;
@@ -227,7 +226,7 @@ body {
     margin-left: auto;
     margin-right: 2vh;
     cursor: pointer;
-    
+
 }
 
 #hamburgerMenu img:hover {
@@ -445,7 +444,6 @@ body {
 .top-container h1, .news h1 {
     text-align: center;
     font-size: calc(5px + 1vw + 1vh + 1vmin);
-    font-family: 'Oswald', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -842,7 +840,7 @@ input[type=submit] {
     margin: 20px auto 0 auto;
     cursor: pointer;
     padding: 0.5em 1.5em;
-    border-radius: 0;
+    border-radius:0;
 }
 
 input[type=submit]:hover {
