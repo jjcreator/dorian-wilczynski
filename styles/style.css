@@ -649,10 +649,10 @@ body {
 #storyOne {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: "flex";
 }
 
-#bookOne, #storyTwo, #storyThree, #audio1, #audio2{
+#bookOne, #storyTwo, #storyThree, #storyFourth, #audio1, #audio2 {
     display: none;
 }
 
@@ -988,6 +988,7 @@ footer img:hover {
         flex-direction: column;
         width: 100%;
         min-height: fit-content;
+        /* zrobic, żeby działało na firefoxie (caniuse.com) */
     }
 
     #booklist {

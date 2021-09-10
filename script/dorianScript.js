@@ -1,4 +1,4 @@
-// Preload images
+//#region Preload images
 
 let IMAGES = ["../images/tree.jpg", "../images/skycastle.jpg", "../images/book1.jpg"];
 
@@ -6,29 +6,29 @@ IMAGES.forEach(imageUrl => {
     let img = new Image();
     img.src = imageUrl;
 });
+//#endregion
 
-// Preloader
+//#region Prealoader
 
-const mainWrapper = document.getElementById("mainWrapper");
-const preloader = document.getElementById("preloader");
+const mainWrapper = document.querySelector("#mainWrapper");
+const preloader = document.querySelector("#preloader");
 
 window.onload = () => {
     mainWrapper.style.display = "block";
     preloader.style.display = "none";
     setSlide(1);
+    displayBook(0);
 }
 
 // Appear effect for displaying slides / books / news pages //
-
-const appear = (x, arr) => {
-    let grabbed = arr[x];
-    grabbed.style.opacity = (parseFloat(grabbed.style.opacity) + 0.015);
-    if (grabbed.style.opacity < 1) {
-        setTimeout(appear, 10, x, arr);
-    }
+const appear = (obj) => {
+    obj.style.opacity = (parseFloat(obj.style.opacity) + 0.015);
+    if (obj.style.opacity < 1) 
+        setTimeout(appear, 10, obj);
 }
+//#endregion
 
-// Slideshow - main showcase //
+//#region Slideshow - main showcase
 
 let looping;
 let slidePosition = 0;
@@ -79,7 +79,7 @@ const displaySlide = () => {
             currentSlide.style.opacity = 0;
             currentSlide.style.display = "flex";
             currentButton.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
-            appear(index, slideArray);
+            appear(slideArray[index]);
         }      
         else slide.style.display = "none";
     })
@@ -100,8 +100,9 @@ topButtons.forEach((button, index) => {
     });
 });
 
+//#endregion
 
-// News archive //
+//#region News archive
 
 let pagesArray;
 let rightArrow = document.getElementById("right-arrow");
@@ -146,7 +147,7 @@ const displayPage = pageNumber => {
     });
     pagesArray[pageNumber - 1].style.display = "block";
     pagesArray[pageNumber - 1].style.opacity = 0;
-    appear(pageNumber - 1, pagesArray );
+    appear(pagesArray[pageNumber - 1]);
     document.getElementById("page-number").textContent = `Strona ${pageNumber} / ${pagesArray.length}`;
     if (pageNumber === 1) {
         leftArrow.style.opacity = "0.2";
@@ -178,7 +179,9 @@ archiveNews();
 displayPage(1);
 arrows();
 
-// Navbar animations //
+//#endregion
+
+//#region Navbar animations
 
 let navbar = document.getElementById("navbar");
 let myGradient = "linear-gradient(66deg, rgba(61,61,61,1) 0%, rgba(121,108,108,1) 40%, rgba(61,61,61,1) 100%)";
@@ -204,7 +207,9 @@ const navbarControl = () => {
 
 onscroll = navbarControl;
 
-// Mobile menu //
+//#endregion
+
+//#region Mobile menu
 
 let mobileNavbar = document.getElementById("mobile");
 let mobileMenuItems = Array.from(document.getElementsByClassName("navItemMobile"));
@@ -235,40 +240,38 @@ addEventListener("resize", ()=> {
     }
 })
 
-// Display books
+//#endregion
 
-let bookArray = Array.from(document.getElementsByClassName("bookcaseBody"));
-let bookItems = Array.from(document.getElementsByClassName("bookItem"));
-let bookPrev = document.getElementById("bookPrev");
-let bookNext = document.getElementById("bookNext");
-let mobileBooklist = document.querySelector(".mobileBooklist");
+//#region Display books
+
+let bookArray = Array.from(document.querySelectorAll(".bookcaseBody"));
+let bookItems = Array.from(document.querySelectorAll(".bookItem"));
+let bookPrev = document.querySelector("#bookPrev");
+let bookNext = document.querySelector("#bookNext");
+let mobileBooklist = document.querySelector(".mobileBooklist"); 
 let currentBook = 0;
 
-const displayBook = x => {
-    bookArray.forEach((bookDescription)=> {
-        bookDescription.style.display = "none"
-    })
-    bookArray[x].style.display = "flex";
-    bookArray[x].style.opacity = 0;
-    currentBook = bookArray.indexOf(bookArray[x])
-    appear(currentBook, bookArray);
+const displayBook = bookIndex => {
+    bookArray.forEach(bookDescription => { bookDescription.style.display = "none" });
+    bookArray[bookIndex].style.display = "flex";
+    bookArray[bookIndex].style.opacity = 0;
+    appear(bookArray[bookIndex]);
+    currentBook = bookIndex;
     mobileBooklist.innerText = bookItems[currentBook].innerText;
 }
 
-bookItems.forEach((item)=> {
-    item.addEventListener("click", () => {
-        displayBook(bookItems.indexOf(item))
-    })
-});
+bookItems.forEach(item => { item.addEventListener("click", () => { displayBook(bookItems.indexOf(item)) }) });
 
 mobileBooklist.innerText = bookItems[currentBook].innerText;
 
-bookPrev.addEventListener("click", ()=> {
-    currentBook === 0 ? displayBook(5) : displayBook(currentBook - 1);
+bookPrev.addEventListener("click", () => {
+    currentBook === 0 ? displayBook(bookArray.length - 1) : displayBook(currentBook - 1);
     mobileBooklist.innerText = bookItems[currentBook].innerText;
 })
 
-bookNext.addEventListener("click", ()=> {
-    currentBook === (bookArray.length -1) ? displayBook(0) : displayBook(currentBook + 1);
+bookNext.addEventListener("click", () => {
+    currentBook === (bookArray.length - 1) ? displayBook(0) : displayBook(currentBook + 1);
     mobileBooklist.innerText = bookItems[currentBook].innerText;
 })
+
+//#endregion
